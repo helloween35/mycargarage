@@ -1,0 +1,29 @@
+.product-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: lighten($darkColor, 5);
+    padding: 20px;
+    
+    .woocommerce-notices-wrapper {
+        display: none;
+    }
+    
+    // Hány termék van, stb.
+    .woocommerce-result-count, .woocommerce-ordering {
+        margin-bottom: 0;
+    }
+
+    // Rendező select
+    .woocommerce-ordering {
+        float: none;
+
+        select {
+            cursor: pointer;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+        }
+    }
+}

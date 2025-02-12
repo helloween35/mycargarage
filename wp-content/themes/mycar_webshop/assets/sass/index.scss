@@ -1,0 +1,18 @@
+@import './variables';
+@import './reset';
+@import './blocks/header'; 
+
+/* Főoldal specifikus blokkok */
+@import './blocks/slider'; 
+
+/* Listaoldal specifikus blokkok */
+@import './blocks/product-list-header'; 
+@import './blocks/product-list'; 
+
+/* Termék megjelenítés */
+@import './blocks/product-single';
+
+/* Kategóriák megjelenítése */
+@import './blocks/category-list';
+
+@import './blocks/footer'; 

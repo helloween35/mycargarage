@@ -4,6 +4,9 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php bloginfo('name'); ?></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <?php wp_head(); ?>
 </head>
@@ -19,43 +22,24 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-                <?php 
-                    wp_nav_menu(array(
-                        'theme_location' => 'primary', // A regisztrált menü helye
-                        'menu_class' => 'navbar-nav', // Alapértelmezett navbar stílus
-                        'container' => false,
-                        'fallback_cb' => '__return_false',
-                        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                    ));
-                ?>
-            <!--
-            <ul class="navbar-nav"> 
-                <li class="nav-item">
-                    <a class="nav-link active-link" aria-current="page" href="/">Kezdőlap</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/termekek">Termékek</a>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link nav-search-link" type="button" title="Kosaram">
-                        <i class="fa fa-search"></i>
-                        <span class="d-inline-block d-md-none">Keresés</span>
-                    </button>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-cart-link" href="/kosaram" title="Kosaram">
-                        <i class="fa fa-shopping-cart"></i>
-                        <span class="d-inline-block d-md-none">Kosaram</span>
-                    </a>
-                </li>
-            </ul>
-            -->
+            <?php 
+                wp_nav_menu(array(
+                    'theme_location' => 'primary', // A regisztrált menü helye
+                    'menu_class' => 'navbar-nav', // Alapértelmezett navbar stílus
+                    'container' => false,
+                    'fallback_cb' => '__return_false',
+                    'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                ));
+            ?>
         </div>
     </div>
 </nav>
+<?php /*
 <div class="navbar-search">
     <form action="/kereses">
         <input type="text" class="search-input" name="search" placeholder="Keresés a termékek közt" autocomplete="off" />
     </form>
 </div>
+*/
+?>
 <!-- end nav -->

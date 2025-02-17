@@ -1,28 +1,47 @@
-#metaslider-id-86 {
-    margin-bottom: 60px !important;
-    padding-bottom: 0 !important;
-    box-shadow: 0px 0px 56px rgba(0, 0, 0, 0.4);
-    //margin: 0 -160px;
-    //width: calc(100% + 320px) !important;
-    width: 100%;
+@import "../components/cta";
+
+.slider {
+    height: 700px;
+    overflow: hidden;
+    margin-top: -115px;
+    z-index: 0;
+    position: relative;
+
+    .slide {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__background {
+        object-fit: cover;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transform: rotate(180deg);
+    }
 }
 
-.flex-direction-nav {
-    li {
-        cursor: pointer;
-    }
-} 
+.slider {
+    .slide {
+        &__data {
+            h2 {
+                font-size: 55px;
+            }
 
-.flex-control-paging {
-    justify-content: center !important;
+            p {
+                margin: 30px 0;
+            }
 
-    li {
-        a {
-            background: darken($greenColor, 10)  !important;
-
-            &.flex-active {
-                background: lighten($greenColor, 15) !important;
+            .cta-primary {
+                margin-right: 15px;
             }
         }
+
+        &__image {}
     }
 }

@@ -133,5 +133,16 @@ function sajat_cf7_form_script() {
 }
 add_action( 'wp_enqueue_scripts', 'sajat_cf7_form_script' );
 
+function custom_woocommerce_add_to_cart_class($html, $product, $args) {
+    // Az alapértelmezett gombos osztályok megőrzése
+    $custom_class = 'cta cta-secondary'; // Ezt a class-t adja hozzá
+
+    // Az osztályokat tartalmazó attribútum módosítása
+    $html = str_replace('button', 'button ' . $custom_class, $html);
+
+    return $html;
+}
+add_filter('woocommerce_loop_add_to_cart_link', 'custom_woocommerce_add_to_cart_class', 10, 3);
+
 
 ?> 

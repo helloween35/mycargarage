@@ -25,7 +25,7 @@
                 padding: 15px;
                 transition: all .3s;
                 letter-spacing: -1px;
-            
+
                 &:hover {
                     color: $greenColor;
                     transition: all .3s;
@@ -45,6 +45,23 @@
                     width: 0;
                     transition: width .3s;
                     background-color: transparent
+                }
+            }
+
+            &.cart-menu {
+                position: relative;
+
+                .cart-count {
+                    position: absolute;
+                    background-color: $greenColor;
+                    color: $whiteColor;
+                    font-weight: 500;
+                    padding: 3px;
+                    right: 5px;
+                    top: 5px;
+                    font-size: 15px;
+                    border-radius: 3px;
+                    line-height: .8;
                 }
             }
         }  

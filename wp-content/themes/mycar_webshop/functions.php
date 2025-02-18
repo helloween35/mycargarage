@@ -144,5 +144,26 @@ function custom_woocommerce_add_to_cart_class($html, $product, $args) {
 }
 add_filter('woocommerce_loop_add_to_cart_link', 'custom_woocommerce_add_to_cart_class', 10, 3);
 
+function add_cart_icon_to_menu($items, $args) {
+    // Csak az elsődleges menühöz adjuk hozzá
+    if ($args->theme_location == 'primary') {
+        $cart_url = wc_get_cart_url(); // WooCommerce kosár oldal URL
+        $cart_count = WC()->cart->get_cart_contents_count(); // Kosárban lévő termékek száma
+
+        // Kosár ikon HTML (Ha üres, akkor csak ikon, ha van benne termék, mutassa a számot)
+        $cart_item = '<li class="menu-item cart-menu">';
+        $cart_item .= '<a href="' . esc_url($cart_url) . '">';
+        $cart_item .= '<i class="fas fa-shopping-cart"></i>'; // FontAwesome ikon, vagy helyette SVG
+        if ($cart_count > 0) {
+            $cart_item .= ' <span class="cart-count">' . esc_html($cart_count) . '</span>';
+        }
+        $cart_item .= '</a></li>';
+
+        $items .= $cart_item;
+    }
+    return $items;
+}
+add_filter('wp_nav_menu_items', 'add_cart_icon_to_menu', 10, 2);
+
 
 ?> 

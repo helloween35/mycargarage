@@ -1390,7 +1390,7 @@ if ( ! function_exists( 'woocommerce_template_loop_add_to_cart' ) ) {
 						wc_wp_theme_get_element_class_name( 'button' ), // escaped in the template.
 						'product_type_' . $product->get_type(),
 						$product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
-						$product->supports( 'ajax_add_to_cart' ) && $product->is_purchasable() && $product->is_in_stock() ? 'ajax_add_to_cart' : '',
+						$product->supports( 'ajax_add_to_cart' ) && $product->is_purchasable() && $product->is_in_stock() ? 'ajax_add_to_cart cta cta-primary' : '',
 					)
 				)
 			),

@@ -1,7 +1,7 @@
 @import "../components/cta";
 
 .slider {
-    height: 700px;
+    height: calc(100vh + 95px); 
     overflow: hidden;
     margin-top: -115px;
     z-index: 0;
@@ -9,6 +9,9 @@
 
     .slide {
         height: 100%;
+        width: 100%;
+        max-width: $maxContentWidth;
+        margin: 0 auto;
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -42,6 +45,13 @@
             }
         }
 
-        &__image {}
+        &__image {
+            display: flex;
+            justify-content: end;
+            
+            img {
+                width: 75%;
+            }
+        }
     }
 }

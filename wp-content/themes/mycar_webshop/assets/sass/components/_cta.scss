@@ -1,6 +1,7 @@
 .cta {
     padding: 9px 20px;
     border-radius: 30px;
+    transition: all .3s;
 
     &-primary, &-secondary {
         border: 2px solid $greenColor;
@@ -13,5 +14,9 @@
 
     &-secondary {
         background-color: transparent;
+    }
+
+    &:hover {
+        transition: all .3s;
     }
 }

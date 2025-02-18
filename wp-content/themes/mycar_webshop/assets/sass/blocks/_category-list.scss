@@ -1,7 +1,64 @@
-.featured-categories {
-    .category {
-        img {}
-        h4 {}
-        p {}
+.category-list {
+    margin: 50px 0 100px 0;
+}
+
+.category {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 500px;
+
+    img {
+        position: absolute;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        transition: all 0.3s;
+        z-index: 0;
+    }
+
+    h4, p {
+        color: $whiteColor;
+        position: absolute;
+        left: 30px;
+        width: calc(100% - 60px);
+        z-index: 2;
+    }
+
+    h4 {
+        bottom: 50px;
+    }
+
+    p {
+        bottom: 15px;
+    }
+}
+
+// Hover, after
+.category {
+    &:hover {
+        img {
+            transition: all .3s;
+            transform: rotate(2deg) scale(1.05);
+        }
+
+        &:after {
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+            transition: all .3s;
+        }
+    }
+
+    &:after {
+        content: " ";
+        position: absolute;
+        transition: all .3s;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.3);
     }
 }

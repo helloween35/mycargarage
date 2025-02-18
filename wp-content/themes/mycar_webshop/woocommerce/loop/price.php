@@ -25,13 +25,13 @@ global $product;
 <?php if ( $price_html = $product->get_price_html() ) : ?>
     <div class="price">
         <?php
-            if ($product->regular_price !== $product->price) {
-        ?>
+            if ($product->regular_price != $product->price) {
+        ?> 
             <del><?php echo $product->regular_price ?> Ft</del>
         <?php
         }
         ?>
 
-        <span><?php echo $product->regular_price; ?> Ft</span>
+        <span><?php echo $product->price; ?> Ft</span>
     </div>
 <?php endif; ?>

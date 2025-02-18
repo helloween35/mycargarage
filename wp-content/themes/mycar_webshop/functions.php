@@ -1,16 +1,16 @@
 <?php
+
 function mycar_webshop_setup() {
     add_theme_support('woocommerce'); // WooCommerce támogatás
     add_theme_support('title-tag'); // Automatikus title kezelés
     add_theme_support('post-thumbnails'); // Képek engedélyezése
 }
-
 add_action('after_setup_theme', 'mycar_webshop_setup');
+
 
 function mycar_webshop_scripts() {
     wp_enqueue_style('mycar_webshop-style', get_stylesheet_uri());
 }
-
 add_action('wp_enqueue_scripts', 'mycar_webshop_scripts');
 
 
@@ -18,7 +18,6 @@ function mycar_webshop_override_woocommerce_template($template, $template_name, 
     $custom_template = get_stylesheet_directory() . '/woocommerce/' . $template_name;
     return file_exists($custom_template) ? $custom_template : $template;
 }
-
 add_filter('woocommerce_locate_template', 'mycar_webshop_override_woocommerce_template', 10, 3);
 
 
@@ -28,6 +27,7 @@ function mycar_webshop_register_menus() {
     ));
 }
 add_action('after_setup_theme', 'mycar_webshop_register_menus');
+
 
 function myshop_enqueue_scripts() {
     // Bootstrap CSS
@@ -64,7 +64,7 @@ function product_list($product_num = 4) {
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="product">
                         <?php
-                            if ($product->regular_price !== $product->price) {
+                            if ($product->regular_price != $product->price) {
                         ?>
                             <span class="badge badge-success">Akciós!</span>  
                         <?php
@@ -133,6 +133,7 @@ function sajat_cf7_form_script() {
 }
 add_action( 'wp_enqueue_scripts', 'sajat_cf7_form_script' );
 
+
 function custom_woocommerce_add_to_cart_class($html, $product, $args) {
     // Az alapértelmezett gombos osztályok megőrzése
     $custom_class = 'cta cta-secondary'; // Ezt a class-t adja hozzá
@@ -143,6 +144,7 @@ function custom_woocommerce_add_to_cart_class($html, $product, $args) {
     return $html;
 }
 add_filter('woocommerce_loop_add_to_cart_link', 'custom_woocommerce_add_to_cart_class', 10, 3);
+
 
 function add_cart_icon_to_menu($items, $args) {
     // Csak az elsődleges menühöz adjuk hozzá
@@ -164,6 +166,4 @@ function add_cart_icon_to_menu($items, $args) {
     return $items;
 }
 add_filter('wp_nav_menu_items', 'add_cart_icon_to_menu', 10, 2);
-
-
 ?> 

@@ -66,7 +66,7 @@ function product_list($product_num = 4) {
                         <?php
                             if ($product->regular_price !== $product->price) {
                         ?>
-                            <span class="badge badge-success">Akciós!</span>
+                            <span class="badge badge-success">Akciós!</span>  
                         <?php
                         }
                         ?>
@@ -123,20 +123,15 @@ function popular_categories($category_num = 5) {
     }
 }
 
-function sajat_woocommerce_termek_kartya_mod() {
-    // Ár eltávolítása
-    remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
-   
-    // Egyedi ár kiírása
-    add_action('woocommerce_after_shop_loop_item_title', 'get_price_tags', 10);
+function sajat_cf7_form_script() {
+    if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
+        wpcf7_enqueue_scripts();
+    }
+    if ( function_exists( 'wpcf7_enqueue_styles' ) ) {
+        wpcf7_enqueue_styles();
+    }
 }
-//add_action('woocommerce_before_shop_loop', 'sajat_woocommerce_termek_kartya_mod');
+add_action( 'wp_enqueue_scripts', 'sajat_cf7_form_script' );
 
-function get_price_tags() {
-    global $product;
-    print_r($product);
-    die();
-    echo '<p class="sajat-ar-stilus">' . wc_price($product->get_price()) . ' <small>Akciós ár!</small></p>';
-}
 
 ?> 

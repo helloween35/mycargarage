@@ -1,4 +1,14 @@
+.contact-page {
+    padding: 40px 0;
+
+    h2 {
+        font-size: 45px;
+    }
+}
+
 .wpcf7 {
+    margin-top: 40px;
+
     label {
         color: #fff;
     }
@@ -13,13 +23,22 @@
         outline: none;
     }
 
+    .wpcf7-not-valid-tip {
+        color: $colorDanger;
+    }
+
     .wpcf7-submit {
         color: #fff;
         display: inline-block;
         width: auto;
     }
 
-    .wpcf7-response-output {
+    .submit-group {
+        position: relative;
 
+        .wpcf7-spinner {
+            position: absolute;
+            left: 0;
+        }
     }
 }

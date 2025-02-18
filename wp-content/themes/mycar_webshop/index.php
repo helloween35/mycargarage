@@ -33,7 +33,7 @@
                     <?php product_list(4); ?>
                 </div>
 
-                <a href="/uzlet">További termékek</a>
+                <a href="/uzlet" class="cta cta-secondary mt-3">További termékek</a>
             </section>
         </div>
     </div>

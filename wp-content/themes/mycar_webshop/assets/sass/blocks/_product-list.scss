@@ -4,7 +4,7 @@
     .product {
         background-color: lighten($darkColor, 5);
         padding: 25px; 
-        border-radius: 5px;
+        border-radius: $borderRadius;
         padding-bottom: 90px;
         position: relative;
         

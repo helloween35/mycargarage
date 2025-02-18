@@ -4,7 +4,7 @@
 
 .category {
     position: relative;
-    border-radius: 5px;
+    border-radius: $borderRadius;
     overflow: hidden;
     height: 500px;
 
@@ -18,7 +18,7 @@
     }
 
     h4, p {
-        color: $whiteColor;
+        color: darken(#fff, 15);
         position: absolute;
         left: 30px;
         width: calc(100% - 60px);

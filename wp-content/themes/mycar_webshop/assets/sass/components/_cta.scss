@@ -2,7 +2,9 @@
     padding: 9px 20px;
     border-radius: 30px;
     transition: all .3s;
-
+    text-decoration: none;
+    display: inline-block;
+    
     &-primary, &-secondary {
         border: 2px solid $greenColor;
         color: #fff;

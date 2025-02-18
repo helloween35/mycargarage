@@ -35,7 +35,7 @@
                 
                 <div class="d-flex justify-content-end">
                     <a href="/uzlet" class="cta cta-secondary mt-3">
-                        További termékek
+                        További termékek <i class="fa fa-chevron-right"></i>
                     </a>
                 </div>
             </section>

@@ -1,8 +1,10 @@
 @import './variables';
 @import './reset';
 @import './components/cta';
+@import './components/background';
  
 @import './blocks/header'; 
+@import './blocks/contact-form'; 
 
 /* Főoldal specifikus blokkok */
 @import './blocks/slider'; 

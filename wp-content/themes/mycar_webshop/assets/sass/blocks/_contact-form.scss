@@ -1,0 +1,25 @@
+.wpcf7 {
+    label {
+        color: #fff;
+    }
+
+    .wpcf7-form-control {
+        padding: 10px 20px;
+        border: 2px solid $greenColor;
+        background-color: lighten($darkColor, 5);
+        border-radius: 30px;
+        color: #fff;
+        width: 100%;
+        outline: none;
+    }
+
+    .wpcf7-submit {
+        color: #fff;
+        display: inline-block;
+        width: auto;
+    }
+
+    .wpcf7-response-output {
+
+    }
+}

@@ -68,7 +68,7 @@ function product_list($product_num = 4) {
                         ?>
                             <span class="badge badge-success">Akciós!</span>
                         <?php
-                            }
+                        }
                         ?>
                         <a href="<?php the_permalink(); ?>">
                             <?php the_post_thumbnail('medium'); ?>

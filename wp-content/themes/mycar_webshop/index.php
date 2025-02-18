@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <img class="slider__background" src="<?php echo get_template_directory_uri(); ?>/assets/img/slider-bg-4.svg" alt="" />
+    <img class="slider__background" src="<?php echo get_template_directory_uri(); ?>/assets/img/slider-bg-4.svg" alt="SVG háttér" />
 </div>
 
 <div class="container">
@@ -27,13 +27,17 @@
 
         <div class="col-12">
             <section class="product-list">
-                <h2>Főbb termékeink</h2>
+                <h2 class="mb-5">Főbb termékeink</h2>
 
                 <div class="row">
                     <?php product_list(4); ?>
                 </div>
-
-                <a href="/uzlet" class="cta cta-secondary mt-3">További termékek</a>
+                
+                <div class="d-flex justify-content-end">
+                    <a href="/uzlet" class="cta cta-secondary mt-3">
+                        További termékek
+                    </a>
+                </div>
             </section>
         </div>
     </div>
@@ -41,7 +45,7 @@
     <div class="row">
         <div class="col-12">
             <section class="category-list">
-                <h2>Főbb kategóriáink</h2>
+                <h2 class="mb-5">Főbb kategóriáink</h2>
                 
                 <div class="row">
                     <?php popular_categories(3); ?>

@@ -1,20 +1,11 @@
-.wp-block-woocommerce-cart {
-    .wc-block-cart-items {
-        color: $whiteColor;
+.cart {
+    &-table {
 
-        tr {
-            th {
-                background-color: lighten($darkColor, 5) !important;
-                padding: 13px;
-                
-                &.wc-block-cart-items__header-product {
-                    visibility: visible;
-                }
-            }
-        }
     }
 
-    .wp-block-woocommerce-cart-totals-block {
-
+    &-total {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
     }
 }

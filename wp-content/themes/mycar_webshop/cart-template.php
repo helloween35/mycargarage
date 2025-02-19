@@ -17,7 +17,7 @@ get_header();
                 Innen már csak egy lépés, kérjük mielőtt továbblépnél, ellenőrizd a kosarad tartalmát.
             </p>
 
-            <?php echo do_shortcode('[woocommerce_cart]'); ?>
+            <?php echo do_shortcode('[woocommerce_cart]'); ?> 
         </div>
     </div>
 </div>

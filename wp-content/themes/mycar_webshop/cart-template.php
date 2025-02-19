@@ -14,7 +14,7 @@ get_header();
             <h2>Kosár tartalma</h2>
 
             <p>
-                Ha kérdésed van, írd meg nekünk, kollégáink 1-2 munkanapon belül válaszolni fognak.
+                Innen már csak egy lépés, kérjük mielőtt továbblépnél, ellenőrizd a kosarad tartalmát.
             </p>
 
             <?php echo do_shortcode('[woocommerce_cart]'); ?>

@@ -3,7 +3,7 @@
     <div class="container product-list my-5">
         <div class="row">
             <div class="col-12 mb-4">
-                <h2>Termékdsafsdsdeink</h2>
+                <h2>Termékeink</h2>
             </div>
 
             <div class="col-12">

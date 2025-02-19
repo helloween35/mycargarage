@@ -8,17 +8,17 @@ function mycar_webshop_setup() {
 add_action('after_setup_theme', 'mycar_webshop_setup');
 
 
-function mycar_webshop_scripts() {
-    wp_enqueue_style('mycar_webshop-style', get_stylesheet_uri());
-}
-add_action('wp_enqueue_scripts', 'mycar_webshop_scripts');
-
-
 function mycar_webshop_override_woocommerce_template($template, $template_name, $template_path) {
     $custom_template = get_stylesheet_directory() . '/woocommerce/' . $template_name;
     return file_exists($custom_template) ? $custom_template : $template;
 }
 add_filter('woocommerce_locate_template', 'mycar_webshop_override_woocommerce_template', 10, 3);
+
+
+function mycar_webshop_scripts() {
+    wp_enqueue_style('mycar_webshop-style', get_stylesheet_uri());
+}
+add_action('wp_enqueue_scripts', 'mycar_webshop_scripts');
 
 
 function mycar_webshop_register_menus() {
@@ -43,6 +43,8 @@ function myshop_enqueue_scripts() {
     wp_enqueue_script('myshop-scripts', get_template_directory_uri() . '/assets/js/index.js', array('jquery'), null, true);
 }
 add_action('wp_enqueue_scripts', 'myshop_enqueue_scripts');
+
+add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
 
 function product_list($product_num = 4) {

@@ -11,7 +11,7 @@
 
     &-primary, &-secondary {
         border: 2px solid $greenColor;
-        color: #fff;
+        color: $whiteColor;
     }
 
     &-primary {
@@ -20,6 +20,16 @@
 
     &-secondary {
         background-color: transparent; 
+    }
+
+    &-danger {
+        background-color: $colorDanger;
+        border: 2px solid $colorDanger;
+        color: $whiteColor;
+
+        &.delete {
+            padding: 2px 9px;
+        }
     }
 
     &:hover {

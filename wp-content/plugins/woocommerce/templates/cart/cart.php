@@ -14,6 +14,7 @@
  * @package WooCommerce\Templates
  * @version 7.9.0
  */
+<?php die('Ez a woocommerce-s cart.php'); ?>
 
 defined( 'ABSPATH' ) || exit;
 

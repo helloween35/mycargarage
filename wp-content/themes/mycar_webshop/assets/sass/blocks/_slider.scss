@@ -1,5 +1,5 @@
 .slider {
-    height: calc(100vh + 39px);
+    height: 600px;
     overflow: hidden;
     margin-top: -115px;
     z-index: 0;
@@ -16,7 +16,7 @@
         position: relative;
         z-index: 1;
     }
-
+ 
     &__background {
         object-fit: cover;
         width: 100%;

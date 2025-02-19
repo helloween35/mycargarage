@@ -88,7 +88,7 @@ get_header(); ?>
                     </div>
 
                     <div class="d-flex justify-content-end submit-group">
-                        <input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="Beküldés">
+                        <input class="wpcf7-form-control wpcf7-submit has-spinner cta cta-primary" type="submit" value="Beküldés">
                     </div>
                 </form>
             </div>

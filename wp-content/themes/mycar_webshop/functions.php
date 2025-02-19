@@ -166,4 +166,5 @@ function add_cart_icon_to_menu($items, $args) {
     return $items;
 }
 add_filter('wp_nav_menu_items', 'add_cart_icon_to_menu', 10, 2);
+
 ?> 

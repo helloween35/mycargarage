@@ -26,10 +26,6 @@
         background-color: $colorDanger;
         border: 2px solid $colorDanger;
         color: $whiteColor;
-
-        &.delete {
-            padding: 2px 9px;
-        }
     }
 
     &:hover {

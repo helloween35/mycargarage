@@ -1,66 +1,70 @@
 <?php
-/**
- * Checkout Form
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/checkout/form-checkout.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
- * @see https://woocommerce.com/document/template-structure/
- * @package WooCommerce\Templates
- * @version 9.4.0
- */
+defined('ABSPATH') || exit;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
-do_action( 'woocommerce_before_checkout_form', $checkout );
-
-// If checkout registration is disabled and not logged in, the user cannot checkout.
-if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_required() && ! is_user_logged_in() ) {
-	echo esc_html( apply_filters( 'woocommerce_checkout_must_be_logged_in_message', __( 'You must be logged in to checkout.', 'woocommerce' ) ) );
-	return;
-}
-
+$order_button_text = apply_filters('woocommerce_order_button_text', __('Megrendelés leadása', 'woocommerce'));
 ?>
 
-<form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data" aria-label="<?php echo esc_attr__( 'Checkout', 'woocommerce' ); ?>">
+<form name="checkout" method="post" class="checkout-form" action="<?php echo esc_url(wc_get_checkout_url()); ?>">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Számlázási adatok</h3>
 
-	<?php if ( $checkout->get_checkout_fields() ) : ?>
-
-		<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
-
-		<div class="col2-set" id="customer_details">
-			<div class="col-1">
-				<?php do_action( 'woocommerce_checkout_billing' ); ?>
+			<div class="form-group">
+				<label for="billing_first_name">Keresztnév</label>
+				<input type="text" class="form-control" name="billing_first_name" id="billing_first_name" value="<?php echo esc_attr(WC()->checkout->get_value('billing_first_name')); ?>" required>
 			</div>
 
-			<div class="col-2">
-				<?php do_action( 'woocommerce_checkout_shipping' ); ?>
+			<div class="form-group">
+				<label for="billing_last_name">Vezetéknév</label>
+				<input type="text"  class="form-control" name="billing_last_name" id="billing_last_name" value="<?php echo esc_attr(WC()->checkout->get_value('billing_last_name')); ?>" required>
 			</div>
+
+			<div class="form-group">
+				<label for="billing_email">Email</label>
+				<input type="email"  class="form-control" name="billing_email" id="billing_email" value="<?php echo esc_attr(WC()->checkout->get_value('billing_email')); ?>" required>
+			</div>
+
+			<div class="form-group">
+				<label for="billing_phone">Telefon</label>
+				<input type="text"  class="form-control" name="billing_phone" id="billing_phone" value="<?php echo esc_attr(WC()->checkout->get_value('billing_phone')); ?>" required>
+			</div>
+			
+			<div class="form-group">
+				<label for="billing_address_1">Cím</label>
+				<input type="text"  class="form-control" name="billing_address_1" id="billing_address_1" value="<?php echo esc_attr(WC()->checkout->get_value('billing_address_1')); ?>" required>
+			</div>
+
+            <h3 class="mt-5">Szállítási adatok</h3>
+
+			<div class="form-group">
+				<label for="shipping_first_name">Keresztnév</label>
+				<input type="text" class="form-control" name="shipping_first_name" id="shipping_first_name" value="<?php echo esc_attr(WC()->checkout->get_value('shipping_first_name')); ?>">
+			</div>
+
+			<div class="form-group">
+				<label for="shipping_last_name">Vezetéknév</label>
+				<input type="text" class="form-control" name="shipping_last_name" id="shipping_last_name" value="<?php echo esc_attr(WC()->checkout->get_value('shipping_last_name')); ?>">
+			</div>
+
+			<div class="form-group">
+				<label for="shipping_address_1">Cím</label>
+				<input type="text" class="form-control" name="shipping_address_1" id="shipping_address_1" value="<?php echo esc_attr(WC()->checkout->get_value('shipping_address_1')); ?>">
+			</div>
+       
 		</div>
+    </div>
 
-		<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
+    <div class="payment-methods">
+        <?php wc_get_template('checkout/payment.php', array('order_button_text' => $order_button_text)); ?>
+    </div>
 
-	<?php endif; ?>
-	
-	<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
-	
-	<h3 id="order_review_heading"><?php esc_html_e( 'Your order', 'woocommerce' ); ?></h3>
-	
-	<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
+    <div class="order-review">
+        <?php wc_get_template('checkout/review-order.php'); ?>
+    </div>
 
-	<div id="order_review" class="woocommerce-checkout-review-order">
-		<?php do_action( 'woocommerce_checkout_order_review' ); ?>
-	</div>
+    <button type="submit" class="order-btn" name="woocommerce_checkout_place_order" id="place_order">
+        <?php echo esc_html($order_button_text); ?>
+    </button>
 
-	<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
-
+    <?php wp_nonce_field('woocommerce-process_checkout', 'woocommerce-process-checkout-nonce'); ?>
 </form>
-
-<?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>

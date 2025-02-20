@@ -25,7 +25,7 @@ get_header(); ?>
                     <ul></ul>
                 </div>
 
-                <form action="/kapcsolat/#wpcf7-f6-o1" method="post" class="wpcf7-form init" aria-label="Kapcsolatfelvételi űrlap" novalidate="novalidate" data-status="init">
+                <form action="/kapcsolat/#wpcf7-f6-o1" method="post" class="wpcf7-form init form-green" aria-label="Kapcsolatfelvételi űrlap" novalidate="novalidate" data-status="init">
                     <input type="hidden" name="_wpcf7" value="6">
                     <input type="hidden" name="_wpcf7_version" value="6.0.3">
                     <input type="hidden" name="_wpcf7_locale" value="hu_HU">

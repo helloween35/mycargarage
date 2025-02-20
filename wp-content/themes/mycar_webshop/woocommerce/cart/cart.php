@@ -9,8 +9,7 @@ defined('ABSPATH') || exit;
                     <thead>
                         <tr>
 							<th></th>
-                            <th>Termék neve</th>
-                            <th class="product-price">Ár</th>
+                            <th>Termék</th>
                             <th>Mennyiség</th>
                             <th class="product-price">Összesen</th>
                             <th></th>
@@ -32,7 +31,6 @@ defined('ABSPATH') || exit;
                                     <?php echo esc_html($product->get_name()); ?>
                                 </a>
                             </td>
-                            <td class="product-price"><?php echo wc_price($product->get_price()); ?></td>
                             <td class="product-quantity" data-title="Mennyiség">
 								<?php 
 									woocommerce_quantity_input(array(

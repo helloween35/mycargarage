@@ -33,7 +33,7 @@ get_header(); ?>
                     <input type="hidden" name="_wpcf7_container_post" value="0">
                     <input type="hidden" name="_wpcf7_posted_data_hash" value="">
                 
-                    <div class="mb-4">
+                    <div class="form-group">
                         <label> Név: * </label>
                         <input
                             class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
@@ -48,7 +48,7 @@ get_header(); ?>
                         <span class="wpcf7-form-control-wrap" data-name="your-name"></span>
                     </div>
 
-                    <div class="mb-4">
+                    <div class="form-group">
                         <label> E-mail cím: * </label>
                         <input 
                             class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email"
@@ -62,7 +62,7 @@ get_header(); ?>
                         <span class="wpcf7-form-control-wrap" data-name="your-email"></span>
                     </div>
 
-                    <div class="mb-4">
+                    <div class="form-group">
                         <label> Tárgy: * </label>
                         <input
                             class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
@@ -75,7 +75,7 @@ get_header(); ?>
                         <span class="wpcf7-form-control-wrap" data-name="your-subject"></span>
                     </div>
 
-                    <div class="mb-4">
+                    <div class="form-group">
                         <label> Üzenet: * </label>
                         <textarea 
                             class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required"

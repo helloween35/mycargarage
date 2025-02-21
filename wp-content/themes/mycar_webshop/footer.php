@@ -7,11 +7,9 @@
             </div>
             <!-- Lábfej jobb oldali rész, pl. közösségi média linkek -->
             <div class="col-md-6 text-md-end">
-                <ul class="social-links">
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twitter</a></li>
-                </ul>
+                <p class="mb-0">
+                    Designed by <a href="http://webfusion.hu" class="text-decoration-none" target="_blank">WebFusion</a>
+                </p>
             </div>
         </div>
     </div>

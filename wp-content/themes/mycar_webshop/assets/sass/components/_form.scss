@@ -1,17 +1,29 @@
 .form-green {
+    .form-group {
+        margin-bottom: 20px;
+    }
+
     label {
+        color: #fff;
 
     }
 
-    input {
+    input, select, textarea{
+        padding: 10px 20px;
+        border: 2px solid $greenColor;
+        background-color: lighten($darkColor, 5);
+        color: $whiteColor;
 
-    }
+        border-radius: 30px;
+        width: 100%;
+        outline: none;
 
-    select {
-
-    }
-
-    textarea {
-        
+        &:focus, &:focus-visible {
+            outline: none;
+            border: 2px solid $greenColor;
+            background-color: lighten($darkColor, 5);
+            color: $whiteColor;
+            box-shadow: none;
+        }
     }
 }

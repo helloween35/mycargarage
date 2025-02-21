@@ -9,26 +9,12 @@
 .wpcf7 {
     margin-top: 40px;
 
-    label {
-        color: #fff;
-    }
-
-    .wpcf7-form-control:not(.wpcf7-submit) {
-        padding: 10px 20px;
-        border: 2px solid $greenColor;
-        background-color: lighten($darkColor, 5);
-        border-radius: 30px;
-        color: #fff;
-        width: 100%;
-        outline: none;
-    }
-
     .wpcf7-not-valid-tip {
         color: $colorDanger;
     }
 
     .wpcf7-submit {
-        color: #fff;
+        color: $whiteColor;
         display: inline-block;
         width: auto;
     }

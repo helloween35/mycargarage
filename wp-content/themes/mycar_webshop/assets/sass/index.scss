@@ -2,11 +2,14 @@
 @import './reset';
 @import './components/cta';
 @import './components/background';
+@import './components/form'; 
+@import './components/woocommerce-info'; 
  
 @import './blocks/header'; 
 @import './blocks/cart'; 
 
 @import './blocks/contact-form'; 
+@import './blocks/checkout'; 
 
 /* Főoldal specifikus blokkok */
 @import './blocks/slider'; 

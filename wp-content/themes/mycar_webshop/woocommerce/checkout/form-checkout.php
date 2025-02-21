@@ -4,10 +4,10 @@ defined('ABSPATH') || exit;
 $order_button_text = apply_filters('woocommerce_order_button_text', __('Megrendelés leadása', 'woocommerce'));
 ?>
 
-<form name="checkout" method="post" class="checkout-form" action="<?php echo esc_url(wc_get_checkout_url()); ?>">
+<form name="checkout" method="post" class="checkout-form form-green" action="<?php echo esc_url(wc_get_checkout_url()); ?>">
     <div class="row">
         <div class="col-md-6">
-            <h3>Számlázási adatok</h3>
+            <h3 class="mt-5">Számlázási adatok</h3>
 
 			<div class="form-group">
 				<label for="billing_first_name">Keresztnév</label>
@@ -50,21 +50,18 @@ $order_button_text = apply_filters('woocommerce_order_button_text', __('Megrende
 				<label for="shipping_address_1">Cím</label>
 				<input type="text" class="form-control" name="shipping_address_1" id="shipping_address_1" value="<?php echo esc_attr(WC()->checkout->get_value('shipping_address_1')); ?>">
 			</div>
-       
+
+			<div class="payment-methods">
+				<?php wc_get_template('checkout/payment.php', array('order_button_text' => $order_button_text)); ?>
+			</div>
+		</div>
+
+		<div class="col-6">
+			<div class="order-review d-flex">
+				<?php wc_get_template('checkout/review-order.php'); ?>
+			</div>
 		</div>
     </div>
 
-    <div class="payment-methods">
-        <?php wc_get_template('checkout/payment.php', array('order_button_text' => $order_button_text)); ?>
-    </div>
-
-    <div class="order-review">
-        <?php wc_get_template('checkout/review-order.php'); ?>
-    </div>
-
-    <button type="submit" class="order-btn" name="woocommerce_checkout_place_order" id="place_order">
-        <?php echo esc_html($order_button_text); ?>
-    </button>
-
-    <?php wp_nonce_field('woocommerce-process_checkout', 'woocommerce-process-checkout-nonce'); ?>
+	<?php wp_nonce_field('woocommerce-process_checkout', 'woocommerce-process-checkout-nonce'); ?>
 </form>

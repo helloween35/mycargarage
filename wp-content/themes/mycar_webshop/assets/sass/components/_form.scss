@@ -8,22 +8,28 @@
 
     }
 
-    input, select, textarea{
+    input, select, textarea {
         padding: 10px 20px;
         border: 2px solid $greenColor;
         background-color: lighten($darkColor, 5);
-        color: $whiteColor;
-
+        color: $whiteColor !important;
         border-radius: 30px;
         width: 100%;
         outline: none;
 
-        &:focus, &:focus-visible {
-            outline: none;
-            border: 2px solid $greenColor;
-            background-color: lighten($darkColor, 5);
-            color: $whiteColor;
-            box-shadow: none;
+        // Idióta Chrome default-ok miatt kell
+        &:focus,
+        &:focus-visible,
+        &:-internal-autofill-selected,
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover, 
+        &:-webkit-autofill:focus {
+            outline: none !important;
+            background-color: lighten($darkColor, 5) !important;
+            color: $whiteColor !important;
+            -webkit-text-fill-color: $whiteColor !important;
+            border: 2px solid $greenColor !important;
+            box-shadow: 0 0 0px 1000px lighten($darkColor, 5) inset !important;
         }
     }
 }

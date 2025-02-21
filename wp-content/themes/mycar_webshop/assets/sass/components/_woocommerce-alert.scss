@@ -1,0 +1,16 @@
+.woocommerce-info { 
+    border: 2px solid $colorInfo; 
+}
+
+.woocommerce-error {
+    border: 2px solid $colorDanger; 
+}
+
+.woocommerce-info,
+.woocommerce-error {
+    list-style: none;
+    color: $whiteColor;
+    padding: 20px;
+    border-radius: 10px;
+    outline: none;
+} 

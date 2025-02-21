@@ -323,7 +323,7 @@ function wc_cart_totals_coupon_html( $coupon ) {
  * Get order total html including inc tax if needed.
  */
 function wc_cart_totals_order_total_html() {
-	$value = '<i>' . WC()->cart->get_total() . '</i> ';
+	$value = '<strong>' . WC()->cart->get_total() . '</strong> ';
 
 	// If prices are tax inclusive, show taxes here.
 	if ( wc_tax_enabled() && WC()->cart->display_prices_including_tax() ) {

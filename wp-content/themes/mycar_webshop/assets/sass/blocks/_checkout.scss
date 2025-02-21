@@ -51,9 +51,13 @@
         }
     }
 
-    .cart-subtotal, .order-total {
+    .cart-subtotal, .order-total, .woocommerce-shipping-totals {
         td {
             text-align: right;
+
+            ul {
+                list-style: none;
+            }
         }
     }
 }

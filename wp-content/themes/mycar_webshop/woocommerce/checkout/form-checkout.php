@@ -78,7 +78,7 @@ $order_button_text = apply_filters('woocommerce_order_button_text', __('Megrende
 			</div>
 		</div>
 
-		<div class="col-5">
+		<div class="col-md-5">
 			<div class="order-review">
 				<?php wc_get_template('checkout/review-order.php'); ?>
 			</div>

@@ -1,9 +1,11 @@
 .slider {
     height: 600px;
-    overflow: hidden;
     margin-top: -115px;
     z-index: 0;
     position: relative;
+    background-color: lighten($darkColor, 5);
+    position: relative;
+    margin-bottom: 50px;
 
     .slide {
         height: 100%;
@@ -24,6 +26,12 @@
         left: 0;
         bottom: 0;
         transform: rotate(180deg);
+    }
+
+    .divider {
+        fill: lighten($darkColor, 5);
+        transform: rotateY(180deg);
+        top: 100%;
     }
 }
 

@@ -1,0 +1,46 @@
+.article {
+    background-color: lighten($darkColor, 5);
+    padding: 25px 25px 35px 25px; 
+    border-radius: $borderRadius;
+    position: relative;
+    height: 100%;
+    margin-bottom: 20px;
+
+    a {
+        text-decoration: none;
+    }
+
+    &__thumbnail {
+        img {
+            border-radius: $borderRadius;
+            width: 100%;
+            height: 165px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 15px;
+        font-size: 24px;
+
+        a {
+            color: $whiteColor;
+            font-weight: 500;
+        }
+    }
+
+    &__post-meta {
+        position: absolute;
+        bottom: 25px;
+        left: 25px;
+        right: 25px;
+        margin: 0;      
+        font-size: 14px;
+        font-style: italic;  
+    }
+
+    &__lead {
+        
+    }
+}

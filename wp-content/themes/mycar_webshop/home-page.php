@@ -61,6 +61,20 @@ get_header();
             </section>
         </div>
     </div>
+
+    
+    <div class="row">
+        <div class="col-12">
+            <section class="category-list">
+                <h2 class="mb-5">Újdonságok</h2>
+                
+                <div class="row">
+                    <?php get_blog_posts(4); ?>
+                </div>
+            </section>
+        </div>
+    </div>
+
 </div>
 
 <?php get_footer(); ?>

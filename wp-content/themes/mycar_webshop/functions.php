@@ -102,6 +102,55 @@ function product_list($product_num = 4) {
     wp_reset_postdata();
 }
 
+function get_blog_posts($posts_per_page = -1, $paged = true) {
+    $args = array(
+        'post_type'      => 'post',
+        'posts_per_page' => $posts_per_page, 
+        'paged'          => ($paged ? get_query_var('paged') : 1), // Ha kell lapozás
+    );
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) :
+        ob_start(); // Output buffer kezdése
+        while ($query->have_posts()) : $query->the_post(); ?>
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <article class="article">
+                    <?php if (has_post_thumbnail()) : ?>
+                        <a href="<?php the_permalink(); ?>" class="article__thumbnail">
+                            <?php the_post_thumbnail('medium'); ?> 
+                        </a>
+                    <?php endif; ?>
+
+                        <h3 class="article__title">
+                            <a href="<?php the_permalink(); ?>">
+                                <?php the_title(); ?>
+                            </a>
+                        </h3>
+                        <p class="article__post-meta">
+                            <?php the_time('Y. F j.'); ?>
+                        </p>
+                        <div class="article__lead">
+                            <?php the_excerpt(); ?>
+                        </div>
+                </article>
+            </div>
+        <?php endwhile; 
+        
+        if ($paged) : ?>
+            <div class="pagination">
+                <?php echo paginate_links(array('total' => $query->max_num_pages)); ?>
+            </div>
+        <?php endif;
+
+        wp_reset_postdata();
+        echo ob_get_clean(); // Visszaadja a generált HTML-t
+    else :
+        echo '<p>Nincsenek bejegyzések.</p>';
+    endif;
+}
+
+
 function popular_categories($category_num = 5) {
     $taxonomy     = 'product_cat';
     $categories   = get_terms(array(

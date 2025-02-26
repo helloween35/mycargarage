@@ -36,11 +36,11 @@ function myshop_enqueue_scripts() {
     // Saját stílusok
     wp_enqueue_style('myshop-style', get_template_directory_uri() . '/assets/css/index.css');
 
-    // Jquery
-    wp_enqueue_script('bootstrap-js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js', array('jquery'), null, true);
-
     // Bootstrap JS + Popper
     wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', array('jquery'), null, true);
+    
+    // Jquery
+    wp_enqueue_script('bootstrap-js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js', array('jquery'), null, true);
 
     // Saját script
     wp_enqueue_script('myshop-scripts', get_template_directory_uri() . '/assets/js/index.js', array('jquery'), null, true);

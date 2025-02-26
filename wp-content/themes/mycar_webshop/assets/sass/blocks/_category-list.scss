@@ -6,7 +6,8 @@
     position: relative;
     border-radius: $borderRadius;
     overflow: hidden;
-    height: 500px;
+    height: 200px;
+    margin-bottom: 20px;
 
     img {
         position: absolute;
@@ -61,4 +62,12 @@
         z-index: 1;
         background-color: rgba(0, 0, 0, 0.3);
     }
+}
+
+
+@media (min-width: 1200px) {
+    .category {
+        height: 500px;
+    }
+    
 }

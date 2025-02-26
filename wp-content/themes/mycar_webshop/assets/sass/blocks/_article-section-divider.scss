@@ -1,6 +1,5 @@
 .divider {
     height: 200px;
-    width: 100%;
     position: absolute;
     fill: $darkColor;
     left: 0;
@@ -12,7 +11,7 @@
     }
 
     &.downset {
-        top: 0;
-        transform: rotate(180deg);
+        top: -5px;
+        //transform: rotate(180deg);
     }
 }

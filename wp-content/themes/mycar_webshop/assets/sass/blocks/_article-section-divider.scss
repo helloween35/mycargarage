@@ -1,0 +1,18 @@
+.divider {
+    height: 200px;
+    width: 100%;
+    position: absolute;
+    fill: $darkColor;
+    left: 0;
+    right: 0;
+    z-index: 0;
+
+    &.upset {
+        bottom: 0;
+    }
+
+    &.downset {
+        top: 0;
+        transform: rotate(180deg);
+    }
+}

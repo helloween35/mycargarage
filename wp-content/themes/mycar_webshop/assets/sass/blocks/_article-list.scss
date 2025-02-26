@@ -1,3 +1,9 @@
+section.article-list {
+    background-color: darken($greenColor, 25);
+    padding: 210px 0;
+    position: relative;
+}
+
 .article {
     background-color: lighten($darkColor, 5);
     padding: 25px 25px 35px 25px; 

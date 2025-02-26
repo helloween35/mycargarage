@@ -1,7 +1,11 @@
 .site-footer {
     background-color: $backgroundColor !important;
     padding: 30px 0;
-
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
     p {
         margin-bottom: 0;
 

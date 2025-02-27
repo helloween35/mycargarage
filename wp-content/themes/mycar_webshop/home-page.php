@@ -17,7 +17,7 @@ get_header();
                         <strong>Lorem ipsum</strong> <br> 530 kenőanyag
                     </h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
                         Fugit praesentium cupiditate facere impedit ad atque.
                     </p>
 
@@ -37,8 +37,8 @@ get_header();
                         <strong>Sit amet</strong> <br> 600 tisztítószer
                     </h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-                        Fugit praesentium cupiditate facere impedit ad atque.
+                        Officiis, obcaecati hic. <br />
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     </p>
 
                     <button class="cta cta-primary mr-2">Tovább a termékhez</button>

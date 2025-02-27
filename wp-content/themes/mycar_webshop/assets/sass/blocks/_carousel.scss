@@ -14,9 +14,7 @@
 
     &-item {
         &__content {
-            display: flex !important; // bootstrap dolgai miatt kell sajnos az important
-            align-items: center;
-            justify-content: space-around;
+            padding: 30px;
             position: relative;
             z-index: 1;
         }
@@ -29,7 +27,7 @@
     }
 }
 
-// Carousel elemeinek a design-ja
+// Carousel tartalmi részének a design-ja
 .carousel {
     &-item {
         &__content {
@@ -67,6 +65,25 @@
                 opacity: 0; /* Az előző dia fade-out-tal tűnjön el */
                 transition: opacity 0.6s ease-in-out; /* Lassú, sima fade */
             }
+        }
+    }
+}
+
+@media (min-width: 900px) {
+    .carousel { 
+        &-item {
+            &__content {
+                padding: 0;
+                display: flex !important; // bootstrap dolgai miatt kell sajnos az important
+                align-items: center;
+                justify-content: space-around;
+            }
+        }
+     
+        .divider {
+            fill: lighten($darkColor, 5);
+            transform: rotateY(180deg);
+            top: 100%;
         }
     }
 }

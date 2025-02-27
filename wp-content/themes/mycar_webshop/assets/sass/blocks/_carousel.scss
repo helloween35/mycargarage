@@ -1,14 +1,12 @@
 .carousel { 
     height: 600px;
     z-index: 0;
-    position: relative;
     background-color: lighten($darkColor, 5);
     position: relative;
     margin: -40px 0 50px 0;
 
     &-inner {
         height: 100%;
-        width: 100%;
         max-width: $maxContentWidth;
         margin: 0 auto;
         padding: 40px 0 0 0;
@@ -24,15 +22,6 @@
         }
     }
  
-    &__background {
-        object-fit: cover;
-        width: 100%;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        transform: rotate(180deg);
-    }
-
     .divider {
         fill: lighten($darkColor, 5);
         transform: rotateY(180deg);
@@ -40,28 +29,43 @@
     }
 }
 
+// Carousel elemeinek a design-ja
 .carousel {
     &-item {
-        &__data {
-            h2 {
-                font-size: 55px;
+        &__content {
+            &-data {
+                h2 {
+                    font-size: 55px;
+                }
+    
+                p {
+                    margin: 30px 0;
+                }
+    
+                .cta-primary {
+                    margin-right: 15px;
+                }
             }
-
-            p {
-                margin: 30px 0;
-            }
-
-            .cta-primary {
-                margin-right: 15px;
+    
+            &-image {
+                display: flex;
+                justify-content: end;
+                
+                img {
+                    width: 75%;
+                }
             }
         }
+    }
+}
 
-        &__image {
-            display: flex;
-            justify-content: end;
-            
-            img {
-                width: 75%;
+// Carousel gyári fade in effekt javítása
+.carousel {
+    &-item {
+        &.active {
+            &.carousel-item-start {
+                opacity: 0; /* Az előző dia fade-out-tal tűnjön el */
+                transition: opacity 0.6s ease-in-out; /* Lassú, sima fade */
             }
         }
     }

@@ -14,12 +14,14 @@
         padding: 40px 0 0 0;
     }
 
-    &-item { 
-        display: flex !important; // bootstrap dolgai miatt kell sajnos az important
-        align-items: center;
-        justify-content: space-around;
-        position: relative;
-        z-index: 1;
+    &-item {
+        &__content {
+            display: flex !important; // bootstrap dolgai miatt kell sajnos az important
+            align-items: center;
+            justify-content: space-around;
+            position: relative;
+            z-index: 1;
+        }
     }
  
     &__background {

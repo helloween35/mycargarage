@@ -7,5 +7,5 @@ $(document).ready(function() {
         input.setAttribute("autocomplete", "new-password");
     });
 
-    $('.carousel').carousel()
+    //$('.carousel').carousel()
 });    

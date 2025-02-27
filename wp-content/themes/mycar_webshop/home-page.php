@@ -8,81 +8,68 @@
 get_header(); 
 ?>
 
-
-
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-
         <div class="carousel-item active">
-            <div class="carousel-item__data">
-                <h2>
-                    <strong>Lorem ipsum</strong> <br> 530 kenőanyag
-                </h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-                    Fugit praesentium cupiditate facere impedit ad atque.
-                </p>
+            <div class="carousel-item__content">
+                <div class="carousel-item__data">
+                    <h2>
+                        <strong>Lorem ipsum</strong> <br> 530 kenőanyag
+                    </h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                        Fugit praesentium cupiditate facere impedit ad atque.
+                    </p>
 
-                <button class="cta cta-primary mr-2">Tovább a termékhez</button>
-                <button class="cta cta-secondary">Tovább a termékhez</button>
+                    <button class="cta cta-primary mr-2">Tovább a termékhez</button>
+                    <button class="cta cta-secondary">Tovább a termékhez</button>
+                </div>
+                <div class="carousel-item__image">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/tisztito_politur.png" alt="" />
+                </div>
+            </div>      
+        </div>      
+        
+        <div class="carousel-item">
+            <div class="carousel-item__content">
+                <div class="carousel-item__data">
+                    <h2>
+                        <strong>Sit amet</strong> <br> 600 tisztítószer
+                    </h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                        Fugit praesentium cupiditate facere impedit ad atque.
+                    </p>
+
+                    <button class="cta cta-primary mr-2">Tovább a termékhez</button>
+                    <button class="cta cta-secondary">Tovább a termékhez</button>
+                </div>
+                <div class="carousel-item__image">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/tisztito_politur.png" alt="" />
+                </div>
             </div>
-            <div class="carousel-item__image">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/tisztito_politur.png" alt="" />
-            </div>
-        </div>         
+        </div> 
     </div>
 
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
+        <span class="visually-hidden">Previous</span>
     </a>
 
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+        <span class="visually-hidden">Next</span>
     </a>
 
     <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
     </ol>
 
     <svg xmlns="http://www.w3.org/2000/svg" class="divider downset" viewBox="0 0 1000 100"><g><path d="M0 0v99.7C62 69 122.4 48.7 205 66c83.8 17.6 160.5 20.4 240-12 54-22 110-26 173-10a392.2 392.2 0 0 0 222-5c55-17 110.3-36.9 160-27.2V0H0Z" opacity=".5"></path><path d="M0 0v74.7C62 44 122.4 28.7 205 46c83.8 17.6 160.5 25.4 240-7 54-22 110-21 173-5 76.5 19.4 146.5 23.3 222 0 55-17 110.3-31.9 160-22.2V0H0Z"></path></g></svg>
 </div>
 
 
-
-
-    <!--
-    <div class="single-slide">
-        <div class="carousel-item__data">
-            <h2>
-                <strong>Lorem ipsum</strong> <br> 530 kenőanyag
-            </h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-                Fugit praesentium cupiditate facere impedit ad atque.
-            </p>
-
-            <button class="cta cta-primary mr-2">Tovább a termékhez</button>
-            <button class="cta cta-secondary">Tovább a termékhez</button>
-        </div>
-        <div class="carousel-item__image">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/tisztito_politur.png" alt="" />
-        </div>
-    </div>
-    -->
-
-
-
-
-
-
-
-
-
-
-    <!--<img class="slider__background" src="<?php echo get_template_directory_uri(); ?>/assets/img/slider-bg-4.svg" alt="SVG háttér" />-->
-</div>
 
 <div class="container-fluid">
     <div class="row">

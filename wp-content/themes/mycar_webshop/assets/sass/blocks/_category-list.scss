@@ -19,7 +19,7 @@
     }
 
     h4, p {
-        color: darken(#fff, 15);
+        color: $whiteColor;
         position: absolute;
         left: 30px;
         width: calc(100% - 60px);
@@ -67,7 +67,7 @@
 
 @media (min-width: 1200px) {
     .category {
-        height: 500px;
+        height: 300px;
     }
     
 }

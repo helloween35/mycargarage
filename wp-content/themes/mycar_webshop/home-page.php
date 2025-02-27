@@ -8,11 +8,53 @@
 get_header(); 
 ?>
 
-<div class="slider">
-    <svg xmlns="http://www.w3.org/2000/svg" class="divider downset" viewBox="0 0 1000 100"><g><path d="M0 0v99.7C62 69 122.4 48.7 205 66c83.8 17.6 160.5 20.4 240-12 54-22 110-26 173-10a392.2 392.2 0 0 0 222-5c55-17 110.3-36.9 160-27.2V0H0Z" opacity=".5"></path><path d="M0 0v74.7C62 44 122.4 28.7 205 46c83.8 17.6 160.5 25.4 240-7 54-22 110-21 173-5 76.5 19.4 146.5 23.3 222 0 55-17 110.3-31.9 160-22.2V0H0Z"></path></g></svg>
 
-    <div class="slide">
-        <div class="slide__data">
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <div class="carousel-item__data">
+                <h2>
+                    <strong>Lorem ipsum</strong> <br> 530 kenőanyag
+                </h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                    Fugit praesentium cupiditate facere impedit ad atque.
+                </p>
+
+                <button class="cta cta-primary mr-2">Tovább a termékhez</button>
+                <button class="cta cta-secondary">Tovább a termékhez</button>
+            </div>
+            <div class="carousel-item__image">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/tisztito_politur.png" alt="" />
+            </div>
+        </div>         
+    </div>
+
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    </ol>
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="divider downset" viewBox="0 0 1000 100"><g><path d="M0 0v99.7C62 69 122.4 48.7 205 66c83.8 17.6 160.5 20.4 240-12 54-22 110-26 173-10a392.2 392.2 0 0 0 222-5c55-17 110.3-36.9 160-27.2V0H0Z" opacity=".5"></path><path d="M0 0v74.7C62 44 122.4 28.7 205 46c83.8 17.6 160.5 25.4 240-7 54-22 110-21 173-5 76.5 19.4 146.5 23.3 222 0 55-17 110.3-31.9 160-22.2V0H0Z"></path></g></svg>
+</div>
+
+
+
+
+    <!--
+    <div class="single-slide">
+        <div class="carousel-item__data">
             <h2>
                 <strong>Lorem ipsum</strong> <br> 530 kenőanyag
             </h2>
@@ -24,10 +66,20 @@ get_header();
             <button class="cta cta-primary mr-2">Tovább a termékhez</button>
             <button class="cta cta-secondary">Tovább a termékhez</button>
         </div>
-        <div class="slide__image">
+        <div class="carousel-item__image">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/tisztito_politur.png" alt="" />
         </div>
     </div>
+    -->
+
+
+
+
+
+
+
+
+
 
     <!--<img class="slider__background" src="<?php echo get_template_directory_uri(); ?>/assets/img/slider-bg-4.svg" alt="SVG háttér" />-->
 </div>
@@ -37,7 +89,7 @@ get_header();
 
         <div class="col-12">
             <section class="product-list">
-                <h2 class="mb-5">Termékeink</h2>
+                <h2 class="mb-4">Termékeink</h2>
 
                 <div class="row">
                     <?php product_list(4); ?>
@@ -55,7 +107,7 @@ get_header();
     <div class="row">
         <div class="col-12">
             <section class="category-list">
-                <h2 class="mb-5">Kategóriáink</h2>
+                <h2 class="mb-4">Kategóriáink</h2>
                 
                 <div class="row">
                     <?php popular_categories(3); ?>
@@ -76,7 +128,7 @@ get_header();
     <svg xmlns="http://www.w3.org/2000/svg" class="divider downset" viewBox="0 0 1000 100"><g><path d="M0 0v99.7C62 69 122.4 48.7 205 66c83.8 17.6 160.5 20.4 240-12 54-22 110-26 173-10a392.2 392.2 0 0 0 222-5c55-17 110.3-36.9 160-27.2V0H0Z" opacity=".5"></path><path d="M0 0v74.7C62 44 122.4 28.7 205 46c83.8 17.6 160.5 25.4 240-7 54-22 110-21 173-5 76.5 19.4 146.5 23.3 222 0 55-17 110.3-31.9 160-22.2V0H0Z"></path></g></svg>
 
     <div class="container-fluid">
-        <h2 class="mb-3">Újdonságok</h2>
+        <h2 class="mb-4">Újdonságok</h2>
         
         <div class="row">
             <?php get_blog_posts(4); ?>

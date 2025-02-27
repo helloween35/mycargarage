@@ -6,4 +6,6 @@ $(document).ready(function() {
     document.querySelectorAll(".form-green input, .form-green select, .form-green textarea").forEach(input => {
         input.setAttribute("autocomplete", "new-password");
     });
+
+    $('.carousel').carousel()
 });    

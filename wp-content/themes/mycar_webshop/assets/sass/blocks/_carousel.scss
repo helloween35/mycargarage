@@ -1,18 +1,21 @@
-.slider {
+.carousel { 
     height: 600px;
-    margin-top: -115px;
     z-index: 0;
     position: relative;
     background-color: lighten($darkColor, 5);
     position: relative;
-    margin-bottom: 50px;
+    margin: -40px 0 50px 0;
 
-    .slide {
+    &-inner {
         height: 100%;
         width: 100%;
         max-width: $maxContentWidth;
         margin: 0 auto;
-        display: flex;
+        padding: 40px 0 0 0;
+    }
+
+    &-item { 
+        display: flex !important; // bootstrap dolgai miatt kell sajnos az important
         align-items: center;
         justify-content: space-around;
         position: relative;
@@ -35,8 +38,8 @@
     }
 }
 
-.slider {
-    .slide {
+.carousel {
+    &-item {
         &__data {
             h2 {
                 font-size: 55px;

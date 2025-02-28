@@ -23,15 +23,15 @@ global $product;
 ?>
 
 <?php if ( $price_html = $product->get_price_html() ) : ?>
-    <div class="price">
+    <div class="price price-sm">
         <?php
             if ($product->regular_price != $product->price) {
         ?> 
-            <del><?php echo $product->regular_price ?> Ft</del>
+            <del><?php echo number_format($product->regular_price, 0, '', ' '); ?> Ft</del>
         <?php
         }
         ?>
 
-        <span><?php echo $product->price; ?> Ft</span>
+        <span><?php echo number_format($product->price, 0, '', ' ') ?> Ft</span>
     </div>
 <?php endif; ?>

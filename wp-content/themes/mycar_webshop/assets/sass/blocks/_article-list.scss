@@ -12,7 +12,6 @@ section.article-list {
 .article {
     background-color: lighten($darkColor, 5);
     transition: all .3s;
-    //border: 2px solid $greenColor;
     padding: 15px 15px 20px 15px; 
     border-radius: $borderRadius;
     position: relative;

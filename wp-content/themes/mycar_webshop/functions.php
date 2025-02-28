@@ -68,43 +68,116 @@ function enqueue_woocommerce_ajax_scripts() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_woocommerce_ajax_scripts');
 
-function product_list($product_num = 4) {
-    $args = array(
-        'post_type'      => 'product',
-        'posts_per_page' => $product_num,
-        'orderby'        => 'date',
-        'order'          => 'DESC'
-    );
+function product_list($product_num = -1, $paged = true, $related = false, $category_id = null) {
+    global $post;
 
-    $query = new WP_Query($args);
-    
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            global $product;
-
-            ?>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="product">
-                        <?php
-                            if ($product->regular_price != $product->price) {
-                        ?>
-                            <span class="badge badge-success">Akciós!</span>  
-                        <?php
-                        }
-                        ?>
-                        <a href="<?php the_permalink(); ?>">
-                            <?php the_post_thumbnail('medium'); ?>
-                            <h3 title="<?php the_title(); ?>"><?php the_title(); ?></h3>
-                            <?php woocommerce_template_loop_price(); ?>
-                            <?php woocommerce_template_loop_add_to_cart(); ?>
-                        </a>
-                    </div>
-                </div>
-            <?php
+    // Ha kapcsolódó termékeket kérünk egy termékoldalon
+    if ($related && is_product()) {
+        $terms = wp_get_post_terms($post->ID, 'product_cat');
+        if (!empty($terms)) {
+            $category_id = array_map(function ($term) {
+                return $term->term_id;
+            }, $terms);
         }
     }
-    wp_reset_postdata();
+
+    // WooCommerce beépített rendezési opciók kezelése
+    $orderby = 'date';
+    $order = 'DESC';
+
+    if (!empty($_GET['orderby'])) {
+        switch ($_GET['orderby']) {
+            case 'popularity':
+                $orderby = 'meta_value_num';
+                $meta_key = 'total_sales';
+                break;
+            case 'rating':
+                $orderby = 'meta_value_num';
+                $meta_key = '_wc_average_rating';
+                break;
+            case 'price':
+                $orderby = 'meta_value_num';
+                $meta_key = '_price';
+                $order = 'ASC';
+                break;
+            case 'price-desc':
+                $orderby = 'meta_value_num';
+                $meta_key = '_price';
+                $order = 'DESC';
+                break;
+            default:
+                $orderby = 'date';
+                $order = 'DESC';
+        }
+    }
+
+    // Alap WP_Query argumentumok
+    $args = array(
+        'post_type'      => 'product',
+        'posts_per_page' => ($product_num == -1 ? 12 : $product_num),
+        'orderby'        => $orderby,
+        'order'          => $order,
+        'paged'          => ($paged ? get_query_var('paged') : 1),
+    );
+
+    // Ha ár vagy értékelés szerint rendezünk, be kell állítani a meta_query-t
+    if (!empty($meta_key)) {
+        $args['meta_key'] = $meta_key;
+    }
+
+    // Kategória szűrés, ha van megadva
+    if (!empty($category_id)) {
+        $args['tax_query'] = array(
+            array(
+                'taxonomy' => 'product_cat',
+                'field'    => 'term_id',
+                'terms'    => $category_id,
+            ),
+        );
+    }
+
+    // Kapcsolódó termékek esetén kizárjuk az aktuális terméket
+    if ($related && is_product()) {
+        $args['post__not_in'] = array($post->ID);
+    }
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) :
+        ob_start();
+        while ($query->have_posts()) : $query->the_post();
+            global $product;
+            ?>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="product">
+                    <?php if ($product->get_regular_price() != $product->get_price()) : ?>
+                        <span class="badge badge-success">Akciós!</span>
+                    <?php endif; ?>
+                    <a href="<?php the_permalink(); ?>">
+                        <?php the_post_thumbnail('medium'); ?>
+                        <h3 title="<?php the_title(); ?>"><?php the_title(); ?></h3>
+                        <?php woocommerce_template_loop_price(); ?>
+                        <div class="custom-add-to-cart">
+                            <?php woocommerce_template_loop_add_to_cart(); ?>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <?php
+        endwhile;
+
+        // Lapozás
+        if ($paged) : ?>
+            <div class="pagination">
+                <?php echo paginate_links(array('total' => $query->max_num_pages)); ?>
+            </div>
+        <?php endif;
+
+        wp_reset_postdata();
+        echo ob_get_clean();
+    else :
+        echo '<p>Nincsenek termékek.</p>';
+    endif;
 }
 
 function get_blog_posts($posts_per_page = -1, $paged = true) {

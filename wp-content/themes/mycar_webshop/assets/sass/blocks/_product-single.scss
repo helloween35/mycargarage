@@ -1,40 +1,55 @@
 .product-container {
     margin-top: 40px;
     margin-bottom: 50px;
-    
-    .product-data {
-        background-color: lighten($darkColor, 5);
-        padding: 20px;
-        height: 100%;
-        position: relative;
-        
-        .woocommerce-product-details__short-description {
-            color: #fff;    
-        }
-        
-        form.cart {
-            display: flex;
-            justify-content: space-between;
-            position: absolute;
-            bottom: 20px;
+}
 
-            .quantity {
-                .qty {
-                    padding: 6px;
-                    border-radius: 4px 0 0 4px;
-                    border: none;               
-                }
-            }
-    
-            .single_add_to_cart_button {
-                border-radius: 0 4px 4px 0;
-                background-color: $greenColor;
-            }
+
+.product-single {
+    &__image {
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            cursor: pointer;
         }
     }
+    
+    &__data {
+        height: 100%;
+        position: relative;
+    }
 
-    .product-description {
-        margin: 50px 0;
-        color: #fff;
+    &__title {
+        margin-bottom: 30px;
+        color: $whiteColor;
+        font-size: 40px;
+    }
+
+    &__short-description, &__description {
+        color: $whiteColor;
+        line-height: 30px;
+    }
+
+    &__price {
+        margin: 30px 0;
+    }
+
+    &__add-to-cart-form {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+
+        label {
+            color: $whiteColor;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 8px 15px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+        }
     }
 }

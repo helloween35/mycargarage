@@ -17,12 +17,14 @@
 
         &-small {
             display: grid;
-            gap: 10px;
-            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            grid-template-columns: repeat(4, 1fr);
 
             img {
-                border-radius: 10px;
+                background-color: lighten($darkColor, 5);
+                border-radius: 15px;
                 cursor: pointer;
+                width: 100%;
             }
         }
     }

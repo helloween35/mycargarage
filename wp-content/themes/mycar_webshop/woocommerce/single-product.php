@@ -24,15 +24,21 @@
                         ?>
                     </div>
 
-                    <div class="product-single__image-small box mt-3">
+                    <?php
+                        if (count($product->get_gallery_image_ids())) {
+                    ?>
+                    <div class="product-single__image-small my-3">
                         <?php
                         foreach($product->get_gallery_image_ids() as $imageId) {
                             $imageSrc = wp_get_attachment_image_src($imageId);
                             
-                            echo '<img src="' . $imageSrc[0] . '" />';
+                            echo '<img src="' . $imageSrc[0] . '" class="wp-post-image" />';
                         }
                         ?>
                     </div>
+                    <?php
+                        }
+                    ?>
                 </div>
             </div>
 

@@ -16,14 +16,28 @@
             </div>
             
             <!-- Termékkép -->
-            <div class="col-7">
-                <div class="product-single__image box">
-                    <?php the_post_thumbnail('large'); ?>
+            <div class="col-12 col-md-6">
+                <div class="product-single__image">
+                    <div class="product-single__image-large box">
+                        <?php
+                            the_post_thumbnail('large');
+                        ?>
+                    </div>
+
+                    <div class="product-single__image-small box mt-3">
+                        <?php
+                        foreach($product->get_gallery_image_ids() as $imageId) {
+                            $imageSrc = wp_get_attachment_image_src($imageId);
+                            
+                            echo '<img src="' . $imageSrc[0] . '" />';
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
 
             <!-- Termék adatai -->
-            <div class="col-5">
+            <div class="col-12 col-md-6">
                 <div class="product-single__data box">
                     <h2 class="product-single__title">
                         <?php the_title(); ?>
@@ -74,7 +88,7 @@
             </div>
 
             <div class="col-12 mt-5">
-                <h3>Kapcsolódó termékek</h3>
+                <h3 class="mb-4">Kapcsolódó termékek</h3>
 
                 <div class="row">
                     <?php product_list(-1, false, true); ?>

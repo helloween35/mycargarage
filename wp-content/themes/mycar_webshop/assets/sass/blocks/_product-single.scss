@@ -6,11 +6,24 @@
 
 .product-single {
     &__image {
-        img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            cursor: pointer;
+        &-large {
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                cursor: pointer;
+            }
+        }
+
+        &-small {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(5, 1fr);
+
+            img {
+                border-radius: 10px;
+                cursor: pointer;
+            }
         }
     }
     
@@ -35,21 +48,20 @@
     }
 
     &__add-to-cart-form {
-        display: flex;
-        justify-content: space-between;
-        align-items: end;
+        display: block;
 
         label {
             color: $whiteColor;
             display: block;
-            margin-bottom: 5px;
         }
 
         input {
             padding: 8px 15px;
+            margin: 5px 0 30px 0;
             border-radius: 5px;
             outline: none;
             border: none;
+            width: 100px;
         }
     }
 }

@@ -8,4 +8,10 @@ $(document).ready(function() {
     document.querySelectorAll(".form-green input, .form-green select, .form-green textarea").forEach(input => {
         input.setAttribute("autocomplete", "new-password");
     });
+
+    // Kereső mező funkciók
+    $('.search-menu button').click(function() {
+        $('.navbar-search').toggleClass('opened-search');
+        $('.search-input').focus();
+    });
 });    

@@ -97,7 +97,12 @@
                 <h3 class="mb-4">Kapcsolódó termékek</h3>
 
                 <div class="row">
-                    <?php product_list(-1, false, true); ?>
+                    <?php 
+                        product_list([
+                            'product_num' => 4,
+                            'related' => true
+                        ]);
+                    ?>
                 </div>
             </div>
         </div> 

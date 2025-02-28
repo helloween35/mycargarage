@@ -68,14 +68,26 @@ function enqueue_woocommerce_ajax_scripts() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_woocommerce_ajax_scripts');
 
-function product_list($product_num = -1, $paged = true, $related = false, $category_id = null) {
+function product_list($args = []) {
     global $post;
 
+    // Alapértelmezett értékek beállítása
+    $defaults = [
+        'product_num'  => 12,  // Alapértelmezett darabszám
+        'paged'        => false, // Lapozás engedélyezése
+        'related'      => false, // Kapcsolódó termékek listázása
+        'category_id'  => null, // Kategóriaszűrés
+        'search'       => '',   // Keresőmező tartalma
+    ];
+
+    // Paraméterek összevonása az alapértelmezett értékekkel
+    $params = array_merge($defaults, $args);
+
     // Ha kapcsolódó termékeket kérünk egy termékoldalon
-    if ($related && is_product()) {
+    if ($params['related'] && is_product()) {
         $terms = wp_get_post_terms($post->ID, 'product_cat');
         if (!empty($terms)) {
-            $category_id = array_map(function ($term) {
+            $params['category_id'] = array_map(function ($term) {
                 return $term->term_id;
             }, $terms);
         }
@@ -84,6 +96,7 @@ function product_list($product_num = -1, $paged = true, $related = false, $categ
     // WooCommerce beépített rendezési opciók kezelése
     $orderby = 'date';
     $order = 'DESC';
+    $meta_key = '';
 
     if (!empty($_GET['orderby'])) {
         switch ($_GET['orderby']) {
@@ -111,37 +124,43 @@ function product_list($product_num = -1, $paged = true, $related = false, $categ
         }
     }
 
+    // Ha van megadva kereső string
+    if (!empty($_GET['search'])) {
+        $params['search'] = sanitize_text_field($_GET['search']);
+    }
+
     // Alap WP_Query argumentumok
-    $args = array(
+    $query_args = [
         'post_type'      => 'product',
-        'posts_per_page' => ($product_num == -1 ? 12 : $product_num),
+        'posts_per_page' => $params['product_num'],
         'orderby'        => $orderby,
         'order'          => $order,
-        'paged'          => ($paged ? get_query_var('paged') : 1),
-    );
+        'paged'          => ($params['paged'] ? get_query_var('paged') : 1),
+        's'              => $params['search'], // Keresési feltétel
+    ];
 
     // Ha ár vagy értékelés szerint rendezünk, be kell állítani a meta_query-t
     if (!empty($meta_key)) {
-        $args['meta_key'] = $meta_key;
+        $query_args['meta_key'] = $meta_key;
     }
 
     // Kategória szűrés, ha van megadva
-    if (!empty($category_id)) {
-        $args['tax_query'] = array(
-            array(
+    if (!empty($params['category_id'])) {
+        $query_args['tax_query'] = [
+            [
                 'taxonomy' => 'product_cat',
                 'field'    => 'term_id',
-                'terms'    => $category_id,
-            ),
-        );
+                'terms'    => $params['category_id'],
+            ],
+        ];
     }
 
     // Kapcsolódó termékek esetén kizárjuk az aktuális terméket
-    if ($related && is_product()) {
-        $args['post__not_in'] = array($post->ID);
+    if ($params['related'] && is_product()) {
+        $query_args['post__not_in'] = [$post->ID];
     }
 
-    $query = new WP_Query($args);
+    $query = new WP_Query($query_args);
 
     if ($query->have_posts()) :
         ob_start();
@@ -167,9 +186,9 @@ function product_list($product_num = -1, $paged = true, $related = false, $categ
         endwhile;
 
         // Lapozás
-        if ($paged) : ?>
+        if ($params['paged']) : ?>
             <div class="pagination">
-                <?php echo paginate_links(array('total' => $query->max_num_pages)); ?>
+                <?php echo paginate_links(['total' => $query->max_num_pages]); ?>
             </div>
         <?php endif;
 
@@ -179,6 +198,7 @@ function product_list($product_num = -1, $paged = true, $related = false, $categ
         echo '<p>Nincsenek termékek.</p>';
     endif;
 }
+
 
 function get_blog_posts($posts_per_page = -1, $paged = true) {
     $args = array(
@@ -291,14 +311,19 @@ function custom_woocommerce_add_to_cart_class($html, $product, $args) {
 add_filter('woocommerce_loop_add_to_cart_link', 'custom_woocommerce_add_to_cart_class', 10, 3);
 
 
-function add_cart_icon_to_menu($items, $args) {
+function add_custom_menu_icons($items, $args) {
     // Csak az elsődleges menühöz adjuk hozzá
     if ($args->theme_location == 'primary') {
         $cart_url = wc_get_cart_url(); // WooCommerce kosár oldal URL
         $cart_count = WC()->cart->get_cart_contents_count(); // Kosárban lévő termékek száma
 
+        $cart_item = '<li class="menu-item search-menu">';
+        $cart_item .= '<button>';
+        $cart_item .= '<i class="fas fa-search"></i>'; // FontAwesome ikon, vagy helyette SVG
+        $cart_item .= '</button></li>';
+
         // Kosár ikon HTML (Ha üres, akkor csak ikon, ha van benne termék, mutassa a számot)
-        $cart_item = '<li class="menu-item cart-menu">';
+        $cart_item .= '<li class="menu-item cart-menu">';
         $cart_item .= '<a href="' . esc_url($cart_url) . '">';
         $cart_item .= '<i class="fas fa-shopping-cart"></i>'; // FontAwesome ikon, vagy helyette SVG
         if ($cart_count > 0) {
@@ -308,8 +333,9 @@ function add_cart_icon_to_menu($items, $args) {
 
         $items .= $cart_item;
     }
+
     return $items;
 }
-add_filter('wp_nav_menu_items', 'add_cart_icon_to_menu', 10, 2);
+add_filter('wp_nav_menu_items', 'add_custom_menu_icons', 10, 2);
 
 ?> 

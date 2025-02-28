@@ -1,6 +1,6 @@
 .navbar {
     background-color: lighten($darkColor, 5) !important;
-    z-index: 1;
+    z-index: 2;
     margin-bottom: 40px;
 
     .navbar-brand {
@@ -15,8 +15,10 @@
         .menu-item {
             margin-left: 10px;
 
-            a {
-                color: #fff;
+            a, button {
+                color: $whiteColor;
+                background: none;
+                border: none;
                 position: relative;
                 font-weight: 300;
                 text-decoration: none;
@@ -44,7 +46,7 @@
                     width: 0;
                     transition: width .3s;
                     background-color: transparent
-                }
+                }                
             }
 
             &.cart-menu {
@@ -69,24 +71,32 @@
     &-toggler {
         border: 1px solid $greenColor;
         border-radius: 5px;
-        color: $greenColor
+        color: $greenColor;
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
     }
 }
 
 .navbar-search {
-    margin-top: -60px;
+    position: absolute;
+    width: 100%;
+    top: 100%;
     transition: all .3s;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
 
     input {
         background: lighten($darkColor, 10);
-        color: $greenColor;
+        color: $whiteColor;
         border: none;
         padding: 15px 20px;
         display: block;
         font-size: 20px;
         width: 100%;
-        opacity: 0;
-        pointer-events: none;
 
         &:focus,
         &:focus-visible {
@@ -98,6 +108,5 @@
         pointer-events: auto;
         opacity: 1;
         transition: all .3s;
-        margin-top: 0;
     }
 }

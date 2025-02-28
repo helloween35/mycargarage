@@ -9,7 +9,7 @@
 			Nézz szét kiemelt termékeink közt, vagy folytasd a böngészést a vásárlás folytatása gombra kattintva.
 		</p>
 	</div>
-	<?php product_list(4); ?>
+	<?php product_list(['product_num' => 4]); ?>
 </div>
 
 

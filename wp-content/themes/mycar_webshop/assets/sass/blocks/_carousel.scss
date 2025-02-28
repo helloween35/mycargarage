@@ -2,6 +2,7 @@
     height: 600px;
     z-index: 0;
     background-color: lighten($darkColor, 5);
+    background: linear-gradient(180deg, lighten($darkColor, 5) 0%, $darkColor 100%);
     position: relative;
     margin: -40px 0 50px 0;
 

@@ -195,7 +195,11 @@ function product_list($args = []) {
         wp_reset_postdata();
         echo ob_get_clean();
     else :
-        echo '<p>Nincsenek termékek.</p>';
+        echo '
+        <div class="col-12">
+            <div class="woocommerce-info">Nincsenek termékek.</div>
+        </div>
+        ';
     endif;
 }
 

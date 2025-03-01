@@ -16,9 +16,14 @@
 /* Főoldal specifikus blokkok */
 @import './blocks/carousel'; 
 @import './blocks/article-section-divider'; 
-@import './blocks/article-list'; 
 
+/* Cikkekhez tartozó blokkkok */
+@import './blocks/article-list'; 
 @import './blocks/article-single';
+
+/* Kapcsolat oldal */
+@import './blocks/contact-info';
+
 
 /* Listaoldal specifikus blokkok */
 @import './blocks/product-list-header'; 

@@ -4,33 +4,28 @@
     <img class="background" src="<?php echo get_template_directory_uri(); ?>/assets/img/slider-bg-4.svg" alt="" />
 
     <div class="row">
+        <div class="col-12">
+            <h2>
+                <?php the_title(); ?>
+            </h2>
+
+            <p>
+                <span class="author"><?php the_author(); ?></span> - 
+                <time datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date(); ?></time>
+            </p>
+        </div>
         <div class="col-8">
             <article class="single-article">
-              
-                <h1 class="single-article__title">
-                    <?php the_title(); ?>
-                </h1>
-               
-                <div class="single-article__info">
-                    <p>
-                        <span class="author"><?php the_author(); ?></span> - 
-                        <time datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date(); ?></time>
-                    </p>
-                </div>
-                <p class="single-article__categories">
-                    <?php the_category(', '); ?>
-                </p>
+                <?php if (has_post_thumbnail()) : ?>
+                    <figure class="single-article__thumbnail">
+                        <?php the_post_thumbnail('large'); ?>
+                    </figure>
+                <?php endif; ?>
 
                 <?php if (has_excerpt()) : ?>
                     <p class="single-article__lead">
                         <?php echo get_the_excerpt(); ?>
                     </p>
-                <?php endif; ?>
-
-                <?php if (has_post_thumbnail()) : ?>
-                    <figure class="single-article__thumbnail">
-                        <?php the_post_thumbnail('medium'); ?>
-                    </figure>
                 <?php endif; ?>
 
                 <div class="single-article__content">
@@ -46,8 +41,8 @@
             </article>
         </div> 
 
-        <aside class="col-4">
-            <section class="related-articles">
+        <div class="col-4">        
+            <section class="vertical-article-list pl-5">
                 <h3><?php _e('Kapcsolódó cikkek', 'textdomain'); ?></h3>
                 <ul>
                     <?php
@@ -82,7 +77,7 @@
                     ?>
                 </ul>
             </section>
-        </aside>
+        </div>
     </div>
 </div>
 

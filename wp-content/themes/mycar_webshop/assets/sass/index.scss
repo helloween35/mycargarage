@@ -19,7 +19,8 @@
 
 /* Cikkekhez tartozó blokkkok */
 @import './blocks/article-list'; 
-@import './blocks/article-single';
+@import './blocks/vertical-article-list'; 
+@import './blocks/single-article';
 
 /* Kapcsolat oldal */
 @import './blocks/contact-info';
@@ -30,7 +31,7 @@
 @import './blocks/product-list'; 
 
 /* Termék megjelenítés */
-@import './blocks/product-single';
+@import './blocks/single-product';
 
 /* Kategóriák megjelenítése */
 @import './blocks/category-list';

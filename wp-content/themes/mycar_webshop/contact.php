@@ -9,7 +9,7 @@ get_header(); ?>
     <img class="background" src="<?php echo get_template_directory_uri(); ?>/assets/img/slider-bg-4.svg" alt="" />
 
     <div class="row">
-        <div class="col-12 col-md-6 order-2 order-md-1">
+        <div class="col-12 col-md-6 order-2 order-md-1 mb-5">
             <h2>Üzenj nekünk</h2>
 
             <p>
@@ -95,11 +95,7 @@ get_header(); ?>
         <div class="col-12 col-md-6 order-1 order-md-2">
             <div class="contact-info">
                 <div class="contact-info__container">
-                    <h2>Üzenj nekünk</h2>
-
-                    <p>
-                        Ha kérdésed van, írd meg nekünk, kollégáink 1-2 munkanapon belül válaszolni fognak.
-                    </p>
+                    <h2>Elérhetőségeink</h2>
                     <ul>
                         <li>
                             <i class="fa fa-phone"></i> <a href="tel:06303232423">06 30 323 24 23</a> 

@@ -1,8 +1,10 @@
 // article-single...
 
 .single-article {
+    margin-bottom: 60px;
+
     h2 {
-        font-size: 45px;
+        font-size: 35px;
     }
 
     &__info {
@@ -50,5 +52,17 @@
 
     &__tags {
 
+    }
+}
+
+@media(min-width: 992px) {
+    .single-article {
+        h2 {
+            font-size: 45px;
+        }
+    }
+
+    .vertical-article-list {
+        padding-left: 30px;
     }
 }

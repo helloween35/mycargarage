@@ -16,7 +16,7 @@
                 </p>
             </div>
         </div>
-        <div class="col-8">
+        <div class="col-12 col-lg-8">
             <article class="single-article">
                 <?php if (has_post_thumbnail()) : ?>
                     <figure class="single-article__thumbnail">
@@ -43,7 +43,7 @@
             </article>
         </div> 
 
-        <div class="col-4">        
+        <div class="col-12 col-lg-4">        
             <section class="vertical-article-list pl-5">
                 <h3><?php _e('Kapcsolódó cikkek', 'textdomain'); ?></h3>
                 <ul>

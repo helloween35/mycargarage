@@ -26,6 +26,12 @@
                 gap: 15px;
                 justify-content: start;
                 align-items: center;
+                transition: all .3s;
+
+                &:hover {
+                    color: $greenColor;
+                    transition: all .3s;
+                }
             }
         }
     }

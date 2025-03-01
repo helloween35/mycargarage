@@ -5,14 +5,16 @@
 
     <div class="row">
         <div class="col-12">
-            <h2>
-                <?php the_title(); ?>
-            </h2>
+            <div class="single-article">
+                <h2>
+                    <?php the_title(); ?>
+                </h2>
 
-            <p>
-                <span class="author"><?php the_author(); ?></span> - 
-                <time datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date(); ?></time>
-            </p>
+                <p>
+                    <span class="author"><?php the_author(); ?></span> - 
+                    <time datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date(); ?></time>
+                </p>
+            </div>
         </div>
         <div class="col-8">
             <article class="single-article">

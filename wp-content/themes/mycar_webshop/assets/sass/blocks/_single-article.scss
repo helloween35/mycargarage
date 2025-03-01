@@ -1,6 +1,10 @@
 // article-single...
 
 .single-article {
+    h2 {
+        font-size: 45px;
+    }
+
     &__info {
         .author {
 
@@ -17,7 +21,8 @@
     }
 
     &__lead {
-        font-weight: 500; 
+        font-weight: 700;
+        margin-bottom: 30px;
     }
 
     &__thumbnail {
@@ -31,7 +36,16 @@
     }
 
     &__content {
+        line-height: 30px;
 
+        a {
+            color: $greenColor;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 
     &__tags {

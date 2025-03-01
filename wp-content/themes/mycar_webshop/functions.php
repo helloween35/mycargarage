@@ -342,4 +342,26 @@ function add_custom_menu_icons($items, $args) {
 }
 add_filter('wp_nav_menu_items', 'add_custom_menu_icons', 10, 2);
 
+function custom_meta_tags() {
+    if (is_single() || is_page()) {
+        global $post;
+        $title = get_the_title();
+        $description = get_the_excerpt();
+        $url = get_permalink();
+        $image = get_the_post_thumbnail_url($post->ID, 'large');
+
+        ?>
+        <meta name="description" content="<?php echo esc_attr($description); ?>">
+        <meta property="og:title" content="<?php echo esc_attr($title); ?>">
+        <meta property="og:description" content="<?php echo esc_attr($description); ?>">
+        <meta property="og:url" content="<?php echo esc_url($url); ?>">
+        <?php if ($image) : ?>
+            <meta property="og:image" content="<?php echo esc_url($image); ?>">
+        <?php endif; ?>
+        <?php
+    }
+}
+add_action('wp_head', 'custom_meta_tags');
+
+
 ?> 

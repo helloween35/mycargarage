@@ -42,18 +42,6 @@
         align-items: start;
         flex-direction: column;
         justify-content: end;
-
-        del {
-            color: $colorDanger;
-            font-size: 15px;
-            display: block
-        }
-
-        span {
-            font-size: 25px;
-            font-weight: bold;
-            color: darken(#fff, 15);         
-        }
     }
 }
 
@@ -67,11 +55,6 @@
         left: 17px;
         padding: 10px;
         font-size: 13px;
-
-        &:hover {
-            background: lighten($greenColor, 10);
-            color: #fff;
-        }
 
         &:after {
             position: absolute; 

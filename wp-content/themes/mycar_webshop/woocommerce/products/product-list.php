@@ -16,5 +16,7 @@
 </div>
 
 <?php else : ?>
-    <p>Nincs elérhető termék.</p>
+    <div class="woocommerce-info">
+        Nincs elérhető termék.
+    </div>
 <?php endif; ?>

@@ -1,6 +1,6 @@
 section.article-list {
     background-color: lighten($darkColor, 5);
-    padding: 210px 0;
+    padding: 110px 0;
     position: relative;
 
     .divider {
@@ -57,4 +57,11 @@ section.article-list {
         transition: all .3s;
 
     } 
+}
+
+
+@media (min-width: 1200px) {
+    section.article-list {
+        padding: 210px 0;
+    }
 }

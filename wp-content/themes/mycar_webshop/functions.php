@@ -167,7 +167,7 @@ function product_list($args = []) {
         while ($query->have_posts()) : $query->the_post();
             global $product;
             ?>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="col-6 col-md-4 col-lg-3">
                 <div class="product">
                     <?php if ($product->get_regular_price() != $product->get_price()) : ?>
                         <span class="badge badge-success">Akciós!</span>

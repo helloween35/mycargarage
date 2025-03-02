@@ -1,0 +1,36 @@
+// kapcsolódó cikkek lesznek majd...
+
+
+.vertical-article-list {
+    ul {
+        margin-top: 30px;
+        list-style: none;
+        padding: 0;
+
+        li {
+            margin-bottom: 20px;
+
+            img {
+                border-radius: 50%;
+                width: 55px;
+                height: 55px;
+                object-fit: cover;
+            }
+
+            a {
+                color: $whiteColor;
+                text-decoration: none;
+                display: flex;
+                gap: 15px;
+                justify-content: start;
+                align-items: center;
+                transition: all .3s;
+
+                &:hover {
+                    color: $greenColor;
+                    transition: all .3s;
+                }
+            }
+        }
+    }
+}

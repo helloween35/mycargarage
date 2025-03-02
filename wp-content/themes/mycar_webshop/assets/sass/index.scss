@@ -16,16 +16,22 @@
 /* Főoldal specifikus blokkok */
 @import './blocks/carousel'; 
 @import './blocks/article-section-divider'; 
-@import './blocks/article-list'; 
 
-@import './blocks/article-single';
+/* Cikkekhez tartozó blokkkok */
+@import './blocks/article-list'; 
+@import './blocks/vertical-article-list'; 
+@import './blocks/single-article';
+
+/* Kapcsolat oldal */
+@import './blocks/contact-info';
+
 
 /* Listaoldal specifikus blokkok */
 @import './blocks/product-list-header'; 
 @import './blocks/product-list'; 
 
 /* Termék megjelenítés */
-@import './blocks/product-single';
+@import './blocks/single-product';
 
 /* Kategóriák megjelenítése */
 @import './blocks/category-list';

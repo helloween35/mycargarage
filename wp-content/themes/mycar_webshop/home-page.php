@@ -21,7 +21,7 @@ get_header();
                         Fugit praesentium cupiditate facere impedit ad atque.
                     </p>
 
-                    <button class="cta cta-primary mr-2">Tovább a termékhez</button>
+                    <button class="cta cta-primary">Tovább a termékhez</button>
                     <button class="cta cta-secondary">Tovább a termékhez</button>
                 </div>
                 <div class="carousel-item__content-image">
@@ -41,7 +41,7 @@ get_header();
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     </p>
 
-                    <button class="cta cta-primary mr-2">Tovább a termékhez</button>
+                    <button class="cta cta-primary">Tovább a termékhez</button>
                     <button class="cta cta-secondary">Tovább a termékhez</button>
                 </div>
                 <div class="carousel-item__content-image">
@@ -51,20 +51,28 @@ get_header();
         </div> 
     </div>
 
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </a>
+    <div class="carousel-control">
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true">
+                <i class="fa fa-long-arrow-left"></i>
+            </span>
+            <span class="visually-hidden">Previous</span>
+        </a>
 
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true">
+                <i class="fa fa-long-arrow-right"></i>
+            </span>
+            <span class="visually-hidden">Next</span>
+        </a>
+    </div>
 
+    <!--
     <ol class="carousel-indicators">
-        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="indicator active"></li>
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="indicator"></li>
     </ol>
+    -->
 </div>
 
 <div class="container-fluid">

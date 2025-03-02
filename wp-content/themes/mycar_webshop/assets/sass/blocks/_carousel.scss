@@ -1,21 +1,19 @@
 .carousel { 
-    height: 600px;
     z-index: 0;
     background-color: lighten($darkColor, 5);
     background: linear-gradient(180deg, lighten($darkColor, 5) 0%, $darkColor 100%);
     position: relative;
-    margin: -40px 0 50px 0;
-
+    margin: -40px 0 0 0;
+    
     &-inner {
         height: 100%;
         max-width: $maxContentWidth;
         margin: 0 auto;
-        padding: 40px 0 0 0;
+        padding: 40px 30px 0 30px;
     }
 
     &-item {
         &__content {
-            padding: 30px;
             position: relative;
             z-index: 1;
         }
@@ -26,28 +24,73 @@
 .carousel {
     &-item {
         &__content {
+            display: flex !important; // bootstrap dolgai miatt kell sajnos az important
+            flex-direction: column;
+            align-items: center;
+
             &-data {
+                order: 2;
+
                 h2 {
-                    font-size: 55px;
+                    font-size: 33px;
+                    text-align: center;
                 }
     
                 p {
                     margin: 30px 0;
                 }
     
-                .cta-primary {
-                    margin-right: 15px;
+                .cta {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-top: 15px;
                 }
             }
     
             &-image {
-                display: flex;
-                justify-content: end;
-                
+                order: 1;
+                text-align: center;
+
                 img {
-                    width: 75%;
+                    margin-bottom: 30px;
+                    width: 65%;
                 }
             }
+        }
+    }
+}
+
+// Kontrol elemek 
+.carousel { 
+    &-control {
+        position: relative;
+        height: 100%;
+        max-width: $maxContentWidth;
+        margin: 20px auto 40px auto;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            position: static;
+            width: auto;
+
+            span {
+                font-size: 22px;
+                background: none;
+                color: $greenColor;
+            }
+        }
+    }
+
+    &-indicators {
+        list-style: none;
+
+        .indicator {
+            width: 40px;
+            height: 4px;
+            background-color: $greenColor;
         }
     }
 }
@@ -64,21 +107,82 @@
     }
 }
 
-@media (min-width: 900px) {
-    .carousel { 
+
+@media (min-width:767px) {
+    .carousel {
         &-item {
             &__content {
-                padding: 0;
-                display: flex !important; // bootstrap dolgai miatt kell sajnos az important
-                align-items: center;
-                justify-content: space-around;
+                &-data {
+                    .cta {
+                        width: auto;
+
+                        &-primary {
+                            margin-right: 20px;
+                        }
+                    }
+                }
             }
+        }
+    }
+}
+
+@media (min-width: 991px) {
+    .carousel {
+        &-item {
+            &__content {               
+                flex-direction: row;
+
+                &-data {
+                    order: 1;
+                    
+                    h2 {
+                        font-size: 45px;
+                        text-align: left;
+                    }
+                }
+
+                &-image {
+                    order: 1;
+                    display: flex;
+                    justify-content: end;
+                }
+            }
+        }
+
+        &-control {
+            padding: 0 30px 0 30px;
+            justify-content: start;
         }
      
         .divider {
             fill: lighten($darkColor, 5);
             transform: rotateY(180deg);
             top: 100%;
+        }
+    }
+}
+
+
+@media (min-width: 1100px) {
+    .carousel {
+        &-item {
+            &__content {
+                align-items: center;
+                justify-content: space-between;
+                flex-direction: row;
+
+                &-data {
+                    h2 {
+                        font-size: 55px;
+                    }
+                }
+
+                &-image {
+                    img {
+                        width: 65%;
+                    }
+                }
+            }
         }
     }
 }

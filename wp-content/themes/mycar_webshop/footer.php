@@ -1,36 +1,43 @@
 <footer class="site-footer">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-md-4 footer-menu">
-                <h4>Hasznos linkek</h4>
-                <?php 
-                    wp_nav_menu(array(
-                        'menu' => 'Footer menu mandatory'
-                    ));
-                ?>
+            <div class="col-12 col-md-4">
+                <div class="footer-menu">
+                    <h4>Hasznos linkek</h4>
+                    <?php 
+                        wp_nav_menu(array(
+                            'menu' => 'Footer menu mandatory'
+                        ));
+                    ?>
+                </div>
             </div>
-            <div class="col-12 col-md-4 footer-menu">
-                <h4>Hasznos linkek</h4>
-                <?php 
-                    wp_nav_menu(array(
-                        'menu' => 'Footer menu useful'
-                    ));
-                ?>
+            <div class="col-12 col-md-4">
+                <div class="footer-menu">
+                    <h4>Hasznos linkek</h4>
+                    <?php 
+                        wp_nav_menu(array(
+                            'menu' => 'Footer menu useful'
+                        ));
+                    ?>
+                </div>
             </div>
-            <div class="col-12 col-md-4 footer-menu">
-                <h4>Social</h4>
-                <ul>
-                    <li>
-                        <a href="">
-                            <i class="fa-brands fa-facebook"></i> Facebook
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class="fa-brands fa-instagram"></i> Instagram
-                        </a>
-                    </li>
-                </ul>
+            <div class="col-12 col-md-4">
+                <div class="footer-menu">
+                    <h4>Social</h4>
+                    
+                    <ul>
+                        <li>
+                            <a href="">
+                                <i class="fa-brands fa-facebook"></i> Facebook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="fa-brands fa-instagram"></i> Instagram
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

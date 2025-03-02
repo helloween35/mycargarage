@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-4">
-                <div class="footer-menu">
+                <div class="footer-menu"> 
                     <h4>Hasznos linkek</h4>
                     <?php 
                         wp_nav_menu(array(

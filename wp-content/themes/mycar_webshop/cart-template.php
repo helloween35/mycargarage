@@ -18,12 +18,16 @@ get_header();
 
     <div class="row">
         <div class="col-12">
-            <h2>Kosár tartalma</h2>
-            <p>
-                Innen már csak egy lépés, kérjük mielőtt továbblépnél, ellenőrizd a kosarad tartalmát.
-            </p>
+            <div class="cart-container">
+                <div class="cart-inner">
+                    <h2>Kosár tartalma</h2>
+                    <p>
+                        Innen már csak egy lépés, kérjük mielőtt továbblépnél, ellenőrizd a kosarad tartalmát.
+                    </p>
 
-            <?php echo do_shortcode('[woocommerce_cart]'); ?> 
+                    <?php echo do_shortcode('[woocommerce_cart]'); ?> 
+                </div>                
+            </div>
         </div>
     </div>
 </div>

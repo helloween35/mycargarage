@@ -1,6 +1,6 @@
 
 <?php
-if (get_post_meta(get_the_ID(), 'has_footer', true)) :
+if (get_post_meta(get_the_ID(), 'has_footer', true) == 1) :
 ?>
 
 <footer class="site-footer">

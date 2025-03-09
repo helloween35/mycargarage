@@ -6,7 +6,7 @@ $order_button_text = apply_filters('woocommerce_order_button_text', __('Megrende
 
 <form name="checkout" autocomplete="off" method="post" class="checkout-form form-green" action="<?php echo esc_url(wc_get_checkout_url()); ?>">
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-7 order-1 order-md-0 mb-5">
             <h3 class="mt-5">Számlázási adatok</h3>
 
 			<div class="form-group">
@@ -78,7 +78,7 @@ $order_button_text = apply_filters('woocommerce_order_button_text', __('Megrende
 			</div>
 		</div>
 
-		<div class="col-md-5">
+		<div class="col-md-5 order-0 order-md-1">
 			<div class="order-review">
 				<?php wc_get_template('checkout/review-order.php'); ?>
 			</div>

@@ -71,6 +71,23 @@ endif;
     <?php wp_footer(); ?>
 </div>
 
+<?php if (!isset($_COOKIE['acceptedCookies']) || true) : ?>
+    <div class="cookie-bar js-cookie-bar box">
+        <div class="row">
+            <div class="col-6 col-sm-3">
+                <i class="fa-solid fa-cookie"></i>
+            </div>
+            <div class="col-6 col-sm-9">
+                <h5>Halihó!</h5>
+                <p>
+                    Ez a weboldal <a href="/adatvedelmi-tajekoztato">sütiket</a> használ a jobb felhasználói élmény érdekében. <br />
+                </p>
+                <button class="cta cta-primary js-accept-cookies">Elfogadom</button>
+                <button class="cta cta-secondary">Nem fogadom el</button>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
 
 </body>
 </html> 

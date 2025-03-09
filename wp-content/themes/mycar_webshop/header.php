@@ -21,7 +21,7 @@
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/full-logo.png" alt="<?php bloginfo('name'); ?>" />
         </a>
         <button 
-            class="navbar-toggler"
+            class="navbar-toggler collapsed"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"

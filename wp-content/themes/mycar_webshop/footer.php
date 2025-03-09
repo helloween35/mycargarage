@@ -1,3 +1,8 @@
+
+<?php
+if (get_post_meta(get_the_ID(), 'has_footer', true)) :
+?>
+
 <footer class="site-footer">
     <div class="container-fluid">
         <div class="row">
@@ -41,26 +46,30 @@
             </div>
         </div>
     </div>
+</footer>
 
-        <div class="footer-bottom">
-            <div class="container-fluid">
-                <div class="row">
-                    <!-- Lábfej bal oldali rész -->
-                    <div class="col-md-6">
-                        <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. Minden jog fenntartva.</p>
-                    </div>
-                    <!-- Lábfej jobb oldali rész, pl. közösségi média linkek -->
-                    <div class="col-md-6 text-md-end">
-                        <p class="mb-0">
-                            Designed by <a href="https://webfusion.hu" class="text-decoration-none" target="_blank">WebFusion</a>
-                        </p>
-                    </div>
-                </div>
+<?php
+endif;
+?>
+
+<div class="footer-bottom">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Lábfej bal oldali rész -->
+            <div class="col-md-6">
+                <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. Minden jog fenntartva.</p>
+            </div>
+            <!-- Lábfej jobb oldali rész, pl. közösségi média linkek -->
+            <div class="col-md-6 text-md-end">
+                <p class="mb-0">
+                    Designed by <a href="https://webfusion.hu" class="text-decoration-none" target="_blank">WebFusion</a>
+                </p>
             </div>
         </div>
-
+    </div>
     <?php wp_footer(); ?>
-</footer>
+</div>
+
 
 </body>
 </html> 

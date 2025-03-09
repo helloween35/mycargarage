@@ -32,16 +32,16 @@
             } 
         } 
     }
-
-    .footer-bottom {
-        padding: 30px;
-        background-color: $backgroundColor !important;
-
-        p {
-            margin: 0;
-        }
-    } 
 }
+
+.footer-bottom {
+    padding: 30px;
+    background-color: $backgroundColor !important;
+
+    p {
+        margin: 0;
+    }
+}  
 
 @media (min-width: 768px) {
     .site-footer {

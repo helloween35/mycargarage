@@ -12,7 +12,9 @@
             opacity: .7;
         }
     }
+}
 
+.navbar {
     .navbar-collapse {
         justify-content: end;
 
@@ -72,11 +74,18 @@
         }  
     }
 
-    &-toggler {
-        border: 1px solid $greenColor;
-        border-radius: 5px;
-        color: $greenColor;
+    &-toggler { 
+        border-radius: 8px;
+        padding: 7px 9px;
+        border: 2px solid $greenColor;
+        background-color: $greenColor;
+        color: $whiteColor;
 
+        &.collapsed {
+            color: $greenColor;
+            background-color: transparent;
+        }
+        
         &:focus {
             outline: none;
             box-shadow: none;
@@ -84,6 +93,7 @@
     }
 }
 
+// Kereső mezőhöz tartozó stílusok
 .navbar-search {
     position: absolute;
     width: 100%;

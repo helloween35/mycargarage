@@ -16,7 +16,7 @@
             </div>
             
             <!-- Termékkép -->
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 col-12 col-md-6 mb-4 mb-md-0">
                 <div class="product-single__image">
                     <div class="product-single__image-large box">
                         <?php
@@ -27,7 +27,7 @@
                     <?php
                         if (count($product->get_gallery_image_ids())) {
                     ?>
-                    <div class="product-single__image-small my-3">
+                    <div class="product-single__image-small mt-3">
                         <?php
                         foreach($product->get_gallery_image_ids() as $imageId) {
                             $imageSrc = wp_get_attachment_image_src($imageId);
@@ -64,7 +64,7 @@
                             }
                         ?>
 
-                        <span><?php echo number_format($product->price, 0, '', ' '); ?> Ft</span>
+                        <span class="<?php echo ($product->regular_price != $product->price) ? "price-success" : ""; ?>"><?php echo number_format($product->price, 0, '', ' '); ?> Ft</span>
                     </div>
 
                     <!-- Kosárba gomb egyedi markup-pal -->

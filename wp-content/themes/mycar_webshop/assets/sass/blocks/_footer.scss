@@ -1,5 +1,8 @@
 
 .site-footer {
+    position: relative;
+    background-color: $blackColor;
+
     .footer-menu {
         padding: 20px 15px;
 
@@ -31,6 +34,14 @@
                 }
             } 
         } 
+    }
+
+    svg {
+        position: absolute;
+        top: -29px;
+        left: 0;
+        height: 50px;
+        width: 100%;
     }
 }
 

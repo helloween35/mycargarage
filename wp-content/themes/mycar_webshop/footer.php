@@ -71,7 +71,7 @@ endif;
     <?php wp_footer(); ?>
 </div>
 
-<?php if (!isset($_COOKIE['acceptedCookies']) || true) : ?>
+<?php if (!isset($_COOKIE['acceptedCookies'])) : ?>
     <div class="cookie-bar js-cookie-bar box">
         <div class="row">
             <div class="col-5 col-sm-3">

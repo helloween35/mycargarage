@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-$allowed_html = array(
+$allowed_html = array( 
 	'a' => array(
 		'href' => array(),
 	),
@@ -65,7 +65,7 @@ $allowed_html = array(
 	do_action( 'woocommerce_account_dashboard' );
 
 	/**
-	 * Deprecated woocommerce_before_my_account action.
+	 * Deprecated woocommerce_before_my_account action. 
 	 *
 	 * @deprecated 2.6.0
 	 */

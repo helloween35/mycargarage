@@ -1,0 +1,17 @@
+.sidebar {
+    list-style: none;
+    padding: 20px;
+
+    &__item {
+        a {
+            color: $whiteColor;
+            display: block;
+            text-decoration: none;
+            padding: 10px;
+
+            &:hover {
+                color: $greenColor;
+            }
+        }
+    }
+}

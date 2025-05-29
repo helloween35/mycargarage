@@ -19,3 +19,11 @@
     border-radius: 10px;
     outline: none;
 } 
+
+.woocommerce-MyAccount-content {
+    .woocommerce-info,
+    .woocommerce-error,
+    .woocommerce-message {
+        margin-bottom: 30px;
+    }
+}

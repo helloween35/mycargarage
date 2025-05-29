@@ -16,14 +16,3 @@ $(document).ready(function() {
     });
 });    
 
-// Cooki bar JS
-document.addEventListener("DOMContentLoaded", function() {
-    const acceptButton = document.querySelector(".js-accept-cookies");
-    const cookieBar = document.querySelector(".js-cookie-bar");
-
-    // Gomb kattintásra elmentjük a sütit és elrejtjük a sávot
-    acceptButton.addEventListener("click", function() {
-        document.cookie = "acceptedCookies=true; path=/; max-age=" + (60 * 60 * 24 * 365); // 1 évig érvényes
-        cookieBar.classList.add('cookie-bar--hide');
-    });
-});

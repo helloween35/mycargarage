@@ -18,7 +18,7 @@
  */
 
 defined( 'ABSPATH' ) || exit;
-
+ 
 $notes = $order->get_customer_order_notes();
 ?>
 <p>

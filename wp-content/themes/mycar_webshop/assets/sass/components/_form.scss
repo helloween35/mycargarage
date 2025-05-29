@@ -8,7 +8,7 @@
 
     }
 
-    input, select, textarea {
+    input, select, textarea, .select2-selection__rendered {
         padding: 10px 20px;
         border: 2px solid $greenColor;
         background-color: lighten($darkColor, 5);
@@ -41,4 +41,29 @@
 		color: #469546;
 		text-decoration: none;
 	}
+
+    // Speciális multiselect
+    .select2 {
+        &-selection {
+            border: none;
+            background-color: transparent;
+            
+            &__rendered {
+                padding-left: 20px !important;
+            }
+
+            &__arrow {
+                height: 100% !important;
+                right: 15px  !important;
+
+                b {
+                    border-color: #fff transparent transparent transparent !important;
+                }
+            }
+
+            &--single {
+                height: auto;   
+            }
+        }
+    }
 }

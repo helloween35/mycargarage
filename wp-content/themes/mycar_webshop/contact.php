@@ -17,7 +17,7 @@ get_header(); ?>
                 Ha kérdésed van, írd meg nekünk, kollégáink 1-2 munkanapon belül válaszolni fognak.
             </p>
 
-            <div class="wpcf7 js" id="wpcf7-f6-o1" lang="hu-HU" dir="ltr" data-wpcf7-id="6">
+            <div class="wpcf7 js box" id="wpcf7-f6-o1" lang="hu-HU" dir="ltr" data-wpcf7-id="6">
                 <div class="wpcf7-response-output" aria-hidden="true"></div>
 
                 <div class="screen-reader-response">

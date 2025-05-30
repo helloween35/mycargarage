@@ -23,7 +23,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
 <?php if ( $has_orders ) : ?>
  
-	<table class="woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table">
+	<table class="woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table table-green">
 		<thead>
 			<tr>
 				<?php foreach ( wc_get_account_orders_columns() as $column_id => $column_name ) : ?>
@@ -43,7 +43,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 						$is_order_number = 'order-number' === $column_id;
 					?>
 						<?php if ( $is_order_number ) : ?>
-							<th class="woocommerce-orders-table__cell woocommerce-orders-table__cell-<?php echo esc_attr( $column_id ); ?>" data-title="<?php echo esc_attr( $column_name ); ?>" scope="row">
+							<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-<?php echo esc_attr( $column_id ); ?>" data-title="<?php echo esc_attr( $column_name ); ?>" scope="row">
 						<?php else : ?>
 							<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-<?php echo esc_attr( $column_id ); ?>" data-title="<?php echo esc_attr( $column_name ); ?>">
 						<?php endif; ?>
@@ -90,7 +90,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 							<?php endif; ?>
 
 						<?php if ( $is_order_number ) : ?>
-							</th>
+							</td>
 						<?php else : ?>
 							</td>
 						<?php endif; ?>

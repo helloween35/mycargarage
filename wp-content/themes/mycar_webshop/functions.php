@@ -364,4 +364,43 @@ function custom_meta_tags() {
 add_action('wp_head', 'custom_meta_tags');
 
 
+
+
+
+
+add_action( 'template_redirect', 'save_custom_shipping_address_fields' );
+function save_custom_shipping_address_fields() {
+	if (
+		is_user_logged_in() &&
+		is_account_page() &&
+		isset( $_POST['action'] ) &&
+		$_POST['action'] === 'edit_address' &&
+		wp_verify_nonce( $_POST['woocommerce-edit-address-nonce'], 'woocommerce-edit_address' )
+	) {
+		$user_id = get_current_user_id();
+
+		$fields = array(
+			'first_name',
+			'last_name',
+			'postcode',
+			'city',
+			'address_1',
+			'state',
+		);
+
+        $load_address = $_POST['load_address'];
+
+		foreach ( $fields as $field ) {
+            $key = $load_address . '_' . $field;
+			if ( isset( $_POST[ $key ] ) ) {
+				update_user_meta( $user_id, $field, sanitize_text_field( $_POST[ $key ] ) );
+			}
+		}
+
+		// Redirect vissza ugyanoda, opcionális
+		wp_safe_redirect( wc_get_account_endpoint_url( 'edit-address' ) . '?saved=1' );
+		exit;
+	}
+}
+
 ?> 

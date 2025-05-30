@@ -5,7 +5,7 @@ defined('ABSPATH') || exit;
     <div class="row">
         <div class="col-12 col-lg-9">
             <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
-                <table class="shop_table cart woocommerce-cart-form__contents">
+                <table class="shop_table cart woocommerce-cart-form__contents table-green">
                     <thead>
                         <tr>
 							<th></th>

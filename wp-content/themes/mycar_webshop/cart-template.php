@@ -11,8 +11,6 @@ get_header();
     echo get_post_meta(get_the_ID(), 'has_footer', true);
 ?>
 
-
-
 <div class="container-fluid">
     <img class="background" src="<?php echo get_template_directory_uri(); ?>/assets/img/slider-bg-4.svg" alt="" />
 
@@ -25,7 +23,7 @@ get_header();
                         Innen már csak egy lépés, kérjük mielőtt továbblépnél, ellenőrizd a kosarad tartalmát.
                     </p>
 
-                    <?php echo do_shortcode('[woocommerce_cart]'); ?> 
+                    <?php echo do_shortcode('[woocommerce_cart]'); ?>  
                 </div>                
             </div>
         </div>

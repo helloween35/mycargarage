@@ -30,7 +30,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 					<?php 
 						$is_action_buttons = 'order-actions' === $column_id;
 					?>
-					<th scope="col" class="woocommerce-orders-table__header woocommerce-orders-table__header-<?php echo esc_attr( $column_id ); ?>" style="<?php echo $is_action_buttons ? ' text-align: right;' : '' ?>">
+					<th scope="col" class="woocommerce-orders-table__header woocommerce-orders-table__header-<?php echo esc_attr( $column_id ); ?> <?php echo $is_action_buttons ? ' text-right' : '' ?>">
 						<span class="nobr"><?php echo esc_html( $column_name ); ?></span>
 					</th>
 				<?php endforeach; ?>
@@ -48,7 +48,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 						$is_order_number = 'order-number' === $column_id;
 						$is_action_buttons = 'order-actions' === $column_id;
 					?>
-						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-<?php echo esc_attr( $column_id ); ?>" style="<?php echo $is_action_buttons ? ' text-align: right;' : '' ?>" data-title="<?php echo esc_attr( $column_name ); ?>">
+						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-<?php echo esc_attr( $column_id ); ?> <?php echo $is_action_buttons ? ' text-right' : '' ?>" data-title="<?php echo esc_attr( $column_name ); ?>">
 							<?php if ( has_action( 'woocommerce_my_account_my_orders_column_' . $column_id ) ) : ?>
 								<?php do_action( 'woocommerce_my_account_my_orders_column_' . $column_id, $order ); ?>
 

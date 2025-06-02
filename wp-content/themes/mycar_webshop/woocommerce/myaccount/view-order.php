@@ -42,6 +42,11 @@ switch($order->get_status()) {
 		$notifyMessage = 'Teljesítve!'; 
 		break;
 	
+	case 'cancelled':
+		$notifyClass = 'error';
+		$notifyMessage = 'Megrendelés lemondva!'; 
+		break;
+
 	case 'on-hold':
 		$notifyClass = 'info';
 		$notifyMessage = 'Visszatartva!'; 

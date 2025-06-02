@@ -20,13 +20,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 do_action( 'woocommerce_before_account_navigation' );
+
+$showableMenus = wc_get_account_menu_items();
+unset(
+	$showableMenus['dashboard'],
+	$showableMenus['downloads'],
+);
+
 ?>
 
 
 
 <nav aria-label="<?php esc_html_e( 'Account pages', 'woocommerce' ); ?>">
 	<ul class="box sidebar">
-		<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
+		<?php foreach ( $showableMenus as $endpoint => $label ) : ?>
 			<li class="sidebar__item">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>" <?php echo wc_is_current_account_menu_item( $endpoint ) ? 'aria-current="page"' : ''; ?>>
 					<?php echo esc_html( $label ); ?>

@@ -91,10 +91,11 @@ if ( $show_downloads ) {
 			?>
 
             <?php
-            if ( ! empty( $actions ) ) :
+            if ( ! empty( $actions ) && count($actions) > 1 ) :
             ?>
 
 			<tr>
+				<td class="order-actions--heading"><?php esc_html_e( 'Actions', 'woocommerce' ); ?>:</td>
 				<td class="text-right">
 					<?php
 						$wp_button_class = wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '';
@@ -131,13 +132,15 @@ if ( $show_downloads ) {
 					</td>
 				</tr>
 			<?php endif ?>
+
 			<?php
 			foreach ( $order->get_order_item_totals() as $key => $total ) {
 				if ($key === 'order_total') {
 				?>
 					<tr>
 						<td scope="row">
-							<strong><?php echo esc_html( $total['label'] ); ?></strong>							
+							<strong><?php echo esc_html( $total['label'] ); ?></strong>
+							
 						</td>
 						<td class="text-right">
                             <strong><?php echo wp_kses_post( $total['value'] ); ?></strong>                            

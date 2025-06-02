@@ -1,17 +1,30 @@
+.woocommerce-message {
+    border: 2px solid $colorInfo; 
+}
+
 .woocommerce-info { 
     border: 2px solid $colorInfo; 
 }
 
-.woocommerce-message {
-    border: 2px solid $colorInfo; 
+.woocommerce-secondary {
+    border: 2px solid $colorLight; 
+}
+
+.woocommerce-success {
+    border: 2px solid $colorSuccess; 
 }
 
 .woocommerce-error {
     border: 2px solid $colorDanger; 
 }
 
+
+
 .woocommerce-info,
+.woocommerce-secondary,
 .woocommerce-error,
+.woocommerce-light,
+.woocommerce-success,
 .woocommerce-message {
     list-style: none;
     color: $whiteColor;

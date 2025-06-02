@@ -50,10 +50,10 @@ if ( $show_downloads ) {
 	);
 }
 ?>
-<section class="woocommerce-order-details">
+<section class="woocommerce-order-details mb-4">
 	<?php do_action( 'woocommerce_order_details_before_order_table', $order ); ?>
 
-	<h2 class="woocommerce-order-details__title">
+	<h2 class="woocommerce-order-details__title mt-4">
         <?php esc_html_e( 'Order details', 'woocommerce' ); ?>
     </h2>
 
@@ -93,9 +93,8 @@ if ( $show_downloads ) {
             <?php
             if ( ! empty( $actions ) ) :
             ?>
-            
+
 			<tr>
-				<td class="order-actions--heading"><?php esc_html_e( 'Actions', 'woocommerce' ); ?>:</td>
 				<td class="text-right">
 					<?php
 						$wp_button_class = wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '';
@@ -134,14 +133,18 @@ if ( $show_downloads ) {
 			<?php endif ?>
 			<?php
 			foreach ( $order->get_order_item_totals() as $key => $total ) {
+				if ($key === 'order_total') {
 				?>
 					<tr>
-						<td scope="row"><?php echo esc_html( $total['label'] ); ?></td>
+						<td scope="row">
+							<strong><?php echo esc_html( $total['label'] ); ?></strong>							
+						</td>
 						<td class="text-right">
                             <strong><?php echo wp_kses_post( $total['value'] ); ?></strong>                            
                         </td>
 					</tr>
 				<?php
+				}
 			}
 			?>
 			<?php if ( $order->get_customer_note() ) : ?>

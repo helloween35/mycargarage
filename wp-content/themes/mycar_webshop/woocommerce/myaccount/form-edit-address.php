@@ -33,15 +33,15 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 	<div class="box">
 		<form method="post" class="form-green">
 			<div class="form-group">
-				<label for="<?php echo $load_address; ?>_first_name">Keresztnév <span class="required">*</span></label>
-				<input type="text" name="<?php echo $load_address; ?>_first_name" id="<?php echo $load_address; ?>_first_name" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), $load_address . '_first_name', true ) ); ?>">
-			</div>
-
-			<div class="form-group">
 				<label for="<?php echo $load_address; ?>_last_name">Vezetéknév <span class="required">*</span></label>
 				<input type="text" name="<?php echo $load_address; ?>_last_name" id="<?php echo $load_address; ?>_last_name" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), $load_address . '_last_name', true ) ); ?>">
 			</div>
-
+			
+			<div class="form-group">
+				<label for="<?php echo $load_address; ?>_first_name">Keresztnév <span class="required">*</span></label>
+				<input type="text" name="<?php echo $load_address; ?>_first_name" id="<?php echo $load_address; ?>_first_name" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), $load_address . '_first_name', true ) ); ?>">
+			</div>
+			
 			<div class="form-group">
 				<label for="<?php echo $load_address; ?>_postcode">Irányítószám <span class="required">*</span></label>
 				<input type="text" name="<?php echo $load_address; ?>_postcode" id="<?php echo $load_address; ?>_postcode" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), $load_address . '_postcode', true ) ); ?>">
@@ -62,7 +62,7 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 				<select name="<?php echo $load_address; ?>_state" id="<?php echo $load_address; ?>_state">
 					<?php
 					$states = WC()->countries->get_states( 'HU' );
-					$current = get_user_meta( get_current_user_id(), '<?php echo $load_address; ?>_state', true );
+					$current = get_user_meta( get_current_user_id(), $load_address . '_state', true );
 					foreach ( $states as $code => $name ) {
 						printf(
 							'<option value="%s"%s>%s</option>',

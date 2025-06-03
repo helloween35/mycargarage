@@ -74,7 +74,7 @@ if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
 		</tr>
 		<tr>
 			<td><strong>Név:</strong></td>
-			<td><?php echo $addresses['first_name'] . ' ' . $addresses['last_name']; ?></td>
+			<td><?php echo $addresses['last_name'] . ' ' . $addresses['first_name']; ?></td>
 		</tr>
 		<?php if($addresses['company']): ?>
 		<tr>
@@ -82,14 +82,6 @@ if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
 			<td><?php echo $addresses['company']; ?></td>
 		</tr>
 		<?php endif; ?>
-		<tr>
-			<td><strong>Email cím:</strong></td>
-			<td><?php echo $addresses['email']; ?></td>
-		</tr>
-		<tr>
-			<td><strong>Telefonszám:</strong></td>
-			<td><?php echo $addresses['phone']; ?></td>
-		</tr>
 		<tr>
 			<td><strong>Cím:</strong></td>
 			<td><?php echo $addresses['country'] . ' ' . $addresses['postcode'] . ', ' . $addresses['city'] . ' ' . $addresses['address_1'] . ' ' . $addresses['address_2']; ?></td>

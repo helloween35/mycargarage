@@ -393,7 +393,8 @@ function save_custom_shipping_address_fields() {
 		foreach ( $fields as $field ) {
             $key = $load_address . '_' . $field;
 			if ( isset( $_POST[ $key ] ) ) {
-				update_user_meta( $user_id, $field, sanitize_text_field( $_POST[ $key ] ) );
+                echo $_POST[ $key ] . '<br />';
+				update_user_meta( $user_id, $key, sanitize_text_field( $_POST[ $key ] ) );
 			}
 		}
 

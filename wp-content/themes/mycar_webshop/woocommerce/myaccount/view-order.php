@@ -67,7 +67,9 @@ echo '<div class="woocommerce-' . $notifyClass . '">' . $notifyMessage . '</div>
 ?>
 
 <?php if ( $notes ) : ?>
-	<h2><?php esc_html_e( 'Order updates', 'woocommerce' ); ?></h2>
+	<h2>
+		<?php esc_html_e( 'Order updates', 'woocommerce' ); ?>
+	</h2>
 	<ol class="woocommerce-OrderUpdates commentlist notes">
 		<?php foreach ( $notes as $note ) : ?>
 		<li class="woocommerce-OrderUpdate comment note">

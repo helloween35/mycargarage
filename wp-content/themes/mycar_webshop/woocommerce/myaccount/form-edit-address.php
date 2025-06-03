@@ -29,36 +29,32 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 	<h2 class="mb-4">
 		<?php echo apply_filters( 'woocommerce_my_account_edit_address_title', $page_title, $load_address ); ?>
 	</h2>
-		
-	<?php
-	var_dump($_POST);
-	?>
 
 	<div class="box">
 		<form method="post" class="form-green">
 			<div class="form-group">
 				<label for="<?php echo $load_address; ?>_first_name">Keresztnév <span class="required">*</span></label>
-				<input type="text" name="<?php echo $load_address; ?>_first_name" id="<?php echo $load_address; ?>_first_name" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), '<?php echo $load_address; ?>_first_name', true ) ); ?>">
+				<input type="text" name="<?php echo $load_address; ?>_first_name" id="<?php echo $load_address; ?>_first_name" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), $load_address . '_first_name', true ) ); ?>">
 			</div>
 
 			<div class="form-group">
 				<label for="<?php echo $load_address; ?>_last_name">Vezetéknév <span class="required">*</span></label>
-				<input type="text" name="<?php echo $load_address; ?>_last_name" id="<?php echo $load_address; ?>_last_name" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), '<?php echo $load_address; ?>_last_name', true ) ); ?>">
+				<input type="text" name="<?php echo $load_address; ?>_last_name" id="<?php echo $load_address; ?>_last_name" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), $load_address . '_last_name', true ) ); ?>">
 			</div>
 
 			<div class="form-group">
 				<label for="<?php echo $load_address; ?>_postcode">Irányítószám <span class="required">*</span></label>
-				<input type="text" name="<?php echo $load_address; ?>_postcode" id="<?php echo $load_address; ?>_postcode" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), '<?php echo $load_address; ?>_postcode', true ) ); ?>">
+				<input type="text" name="<?php echo $load_address; ?>_postcode" id="<?php echo $load_address; ?>_postcode" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), $load_address . '_postcode', true ) ); ?>">
 			</div>
 
 			<div class="form-group">
 				<label for="<?php echo $load_address; ?>_city">Város <span class="required">*</span></label>
-				<input type="text" name="<?php echo $load_address; ?>_city" id="<?php echo $load_address; ?>_city" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), '<?php echo $load_address; ?>_city', true ) ); ?>">
+				<input type="text" name="<?php echo $load_address; ?>_city" id="<?php echo $load_address; ?>_city" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), $load_address . '_city', true ) ); ?>">
 			</div>
 
 			<div class="form-group">
 				<label for="<?php echo $load_address; ?>_address_1">Cím <span class="required">*</span></label>
-				<input type="text" name="<?php echo $load_address; ?>_address_1" id="<?php echo $load_address; ?>_address_1" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), '<?php echo $load_address; ?>_address_1', true ) ); ?>">
+				<input type="text" name="<?php echo $load_address; ?>_address_1" id="<?php echo $load_address; ?>_address_1" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), $load_address . '_address_1', true ) ); ?>">
 			</div>
 
 			<div class="form-group">
@@ -83,7 +79,9 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 			<input type="hidden" name="action" value="edit_address" />
 			<input type="hidden" name="load_address" value="<?php echo $load_address; ?>" />
 
-			<button type="submit" class="cta cta-primary">Cím mentése</button>
+			<div class="text-right">
+				<button type="submit" class="cta cta-primary">Cím mentése</button>
+			</div>
 		</form>
 
 	</div>

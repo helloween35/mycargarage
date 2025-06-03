@@ -37,57 +37,77 @@ if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
 		$customer_id
 	);
 }
-
-$oldcol = 1;
-$col    = 1;
 ?>
 
 <p>
 	<?php echo apply_filters( 'woocommerce_my_account_my_address_description', esc_html__( 'The following addresses will be used on the checkout page by default.', 'woocommerce' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 </p>
 
-<?php if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) : ?>
-	<div class="u-columns woocommerce-Addresses col2-set addresses">
-<?php endif; ?>
-
 <?php foreach ( $get_addresses as $name => $address_title ) : ?>
 	<?php
+		$fields = [
+			'first_name',
+			'last_name',
+			'company',
+			'address_1',
+			'address_2',
+			'city',
+			'postcode',
+			'state',
+			'country',
+			'phone',
+			'email'
+		];
+
 		$address = wc_get_account_formatted_address( $name );
-		$col     = $col * -1;
-		$oldcol  = $oldcol * -1;
+		$addresses = [];
+
+		foreach ( $fields as $field ) {
+			$value = get_user_meta( $customer_id, "{$name}_{$field}", true );
+			$addresses[$field] = esc_html( $value );
+		}
 	?>
 
-	<div class="u-column<?php echo $col < 0 ? 1 : 2; ?> col-<?php echo $oldcol < 0 ? 1 : 2; ?> woocommerce-Address">
-		<header class="woocommerce-Address-title title">
-			<h2><?php echo esc_html( $address_title ); ?></h2>
-			<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>" class="edit">
-				<?php
-					printf(
-						/* translators: %s: Address title */
-						$address ? esc_html__( 'Edit %s', 'woocommerce' ) : esc_html__( 'Add %s', 'woocommerce' ),
-						esc_html( $address_title )
-					);
-				?>
-			</a>
-		</header>
-		<address>
-			<?php
-				echo $address ? wp_kses_post( $address ) : esc_html_e( 'You have not set up this type of address yet.', 'woocommerce' );
-
-				/**
-				 * Used to output content after core address fields.
-				 *
-				 * @param string $name Address type.
-				 * @since 8.7.0
-				 */
-				do_action( 'woocommerce_my_account_after_my_address', $name );
-			?>
-		</address>
-	</div>
-
+	<table class="table-green mb-4">
+		<tr>
+			<th colspan="2"><?php echo esc_html( $address_title ); ?></th>
+		</tr>
+		<tr>
+			<td><strong>Név:</strong></td>
+			<td><?php echo $addresses['first_name'] . ' ' . $addresses['last_name']; ?></td>
+		</tr>
+		<?php if($addresses['company']): ?>
+		<tr>
+			<td><strong>Cégnév:</strong></td>
+			<td><?php echo $addresses['company']; ?></td>
+		</tr>
+		<?php endif; ?>
+		<tr>
+			<td><strong>Email cím:</strong></td>
+			<td><?php echo $addresses['email']; ?></td>
+		</tr>
+		<tr>
+			<td><strong>Telefonszám:</strong></td>
+			<td><?php echo $addresses['phone']; ?></td>
+		</tr>
+		<tr>
+			<td><strong>Cím:</strong></td>
+			<td><?php echo $addresses['country'] . ' ' . $addresses['postcode'] . ', ' . $addresses['city'] . ' ' . $addresses['address_1'] . ' ' . $addresses['address_2']; ?></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="text-right">
+				<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>" class="btn btn-sm btn-primary">
+					<?php
+						printf(
+							/* translators: %s: Address title */
+							$address ? esc_html__( 'Edit %s', 'woocommerce' ) : esc_html__( 'Add %s', 'woocommerce' ),
+							esc_html( $address_title )
+						);
+					?>
+				</a>
+			</td>
+		</tr>
+	</table>
 <?php endforeach; ?>
 
-<?php if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) : ?>
-	</div>
-	<?php
-endif;
+<?php do_action( 'woocommerce_my_account_after_my_address', $name );?>

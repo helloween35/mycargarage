@@ -41,7 +41,14 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 				<label for="<?php echo $load_address; ?>_first_name">Keresztnév <span class="required">*</span></label>
 				<input type="text" name="<?php echo $load_address; ?>_first_name" id="<?php echo $load_address; ?>_first_name" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), $load_address . '_first_name', true ) ); ?>">
 			</div>
-			
+
+			<?php if ($load_address === 'billing'): ?>
+			<div class="form-group">
+				<label for="<?php echo $load_address; ?>_company">Cégnév <span class="required">*</span></label>
+				<input type="text" name="<?php echo $load_address; ?>_company" id="<?php echo $load_address; ?>_company" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), $load_address . '_company', true ) ); ?>">
+			</div>
+			<?php endif; ?>
+
 			<div class="form-group">
 				<label for="<?php echo $load_address; ?>_postcode">Irányítószám <span class="required">*</span></label>
 				<input type="text" name="<?php echo $load_address; ?>_postcode" id="<?php echo $load_address; ?>_postcode" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), $load_address . '_postcode', true ) ); ?>">

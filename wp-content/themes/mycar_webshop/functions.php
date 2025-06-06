@@ -384,6 +384,7 @@ function save_custom_shipping_address_fields() {
 			'last_name',
 			'postcode',
 			'city',
+			'company',
 			'address_1',
 			'state',
 		);

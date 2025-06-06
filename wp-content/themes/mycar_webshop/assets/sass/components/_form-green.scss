@@ -8,7 +8,7 @@
 
     }
 
-    input, select, textarea, .select2-selection__rendered {
+    input:not([type="checkbox"]):not([type="radio"]), select, textarea, .select2-selection__rendered {
         padding: 10px 20px;
         border: 2px solid $greenColor;
         background-color: lighten($darkColor, 5);
@@ -32,10 +32,6 @@
             box-shadow: 0 0 0px 1000px lighten($darkColor, 5) inset !important;
         }
     }
-	
-	input[type="checkbox"] {
-		width: auto;
-	}
 	
 	a { 
 		color: #469546;

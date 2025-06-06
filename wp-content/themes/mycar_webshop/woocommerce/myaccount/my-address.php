@@ -68,7 +68,7 @@ if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
 		}
 	?>
 
-	<table class="table-green mb-4">
+	<table class="table-green mb-5">
 		<tr>
 			<th colspan="2"><?php echo esc_html( $address_title ); ?></th>
 		</tr>
@@ -88,7 +88,7 @@ if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
 		</tr>
 		<tr>
 			<td colspan="2" class="text-right">
-				<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>" class="btn btn-sm btn-primary">
+				<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>" class="cta cta-primary">
 					<?php
 						printf(
 							/* translators: %s: Address title */

@@ -23,7 +23,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
 <?php if ( $has_orders ) : ?>
  
-	<table class="woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table table-green">
+	<table class="table-green d-none d-md-table">
 		<thead>
 			<tr>
 				<?php foreach ( wc_get_account_orders_columns() as $column_id => $column_name ) : ?>
@@ -118,6 +118,96 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 			?>
 		</tbody>
 	</table>
+
+	<?php foreach ( $customer_orders->orders as $order ) : ?>
+	<table class="d-table d-md-none table-green mt-3 mb-5">
+		<tr>
+			<th colspan="2">
+				<a href="<?php echo esc_url( $order->get_view_order_url() ); ?>" aria-label="<?php echo esc_attr( sprintf( __( 'View order number %s', 'woocommerce' ), $order->get_order_number() ) ); ?>">
+					Rendelés: <?php echo esc_html( _x( '#', 'hash before order number', 'woocommerce' ) . $order->get_order_number() ); ?>
+				</a>
+			</th>
+		</tr>
+		<tr>
+			<td>
+				<strong>Státusz</strong>				
+			</td>
+			<td class="text-right">
+				<?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Termékek száma</strong>
+			</td>
+			<td class="text-right">
+				<?php echo $order->get_item_count() - $order->get_item_count_refunded(); ?> termék
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Dátum</strong>	
+			</td>
+			<td class="text-right">							
+				<time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>">
+					<?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?>
+				</time>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Végösszeg</strong>
+			</td>
+			<td class="text-right">
+				<?php echo $order->get_formatted_order_total(); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="text-right">
+				<?php
+					$actions = wc_get_account_orders_actions( $order );
+
+					if ( ! empty( $actions ) ) {
+						foreach ( $actions as $key => $action ) {
+							if ( empty( $action['aria-label'] ) ) {
+								$action_aria_label = sprintf( __( '%1$s order number %2$s', 'woocommerce' ), $action['name'], $order->get_order_number() );
+							} else {
+								$action_aria_label = $action['aria-label'];
+							}
+
+							switch ($key) {
+								case 'view':
+									$wp_button_class = 'primary mx-2';
+									$wp_button_icon = 'eye';
+									$wp_button_text = 'Megtekintés';
+									break;
+								case 'cancel':
+									$wp_button_class = 'danger';
+									$wp_button_icon = 'times';
+									$wp_button_text = 'Lemondás';
+									break;
+								default:
+									$wp_button_class = 'secondary';
+									$wp_button_icon = 'credit-card';
+									$wp_button_text = 'Fizetés';
+
+									break;
+							}
+							
+							echo '<a href="' . esc_url( $action['url'] ) . '" class="btn btn-sm btn-' . $wp_button_class . '" title="' . esc_html( $action['name'] ) .'" aria-label="' . esc_attr( $action_aria_label ) . '">
+								<i class="fa fa-' . $wp_button_icon . '"></i>
+								' . $wp_button_text . '
+							</a>';
+							unset( $action_aria_label );
+						}
+					}
+				?>
+			</td>
+		</tr>
+	</table>
+	<?php endforeach; ?>
+
+
 
 	<?php do_action( 'woocommerce_before_account_orders_pagination' ); ?>
 

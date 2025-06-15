@@ -74,17 +74,17 @@ if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
 		</tr>
 		<tr>
 			<td><strong>Név:</strong></td>
-			<td><?php echo $addresses['last_name'] . ' ' . $addresses['first_name']; ?></td>
+			<td class="px-3"><?php echo $addresses['last_name'] . ' ' . $addresses['first_name']; ?></td>
 		</tr>
 		<?php if($addresses['company']): ?>
 		<tr>
 			<td><strong>Cégnév:</strong></td>
-			<td><?php echo $addresses['company']; ?></td>
+			<td class="px-3"><?php echo $addresses['company']; ?></td>
 		</tr>
 		<?php endif; ?>
 		<tr>
 			<td><strong>Cím:</strong></td>
-			<td><?php echo $addresses['country'] . ' ' . $addresses['postcode'] . ', ' . $addresses['city'] . ' ' . $addresses['address_1'] . ' ' . $addresses['address_2']; ?></td>
+			<td class="px-3"><?php echo $addresses['country'] . ' ' . $addresses['postcode'] . ', ' . $addresses['city'] . ' ' . $addresses['address_1'] . ' ' . $addresses['address_2']; ?></td>
 		</tr>
 		<tr>
 			<td colspan="2" class="text-right">
